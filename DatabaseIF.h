@@ -12,7 +12,7 @@ public:
     
     virtual std::string* get_toursite_name(int index)  = 0; 
     virtual std::string* get_toursite_introduction(int index)  = 0; 
-    virtual Toursite * get_toursite_topo(int index) = 0; /* 索取景点内部拓扑机构 */
+    virtual ToursiteTopo * get_toursite_topo(int index) = 0; /* 索取景点内部拓扑机构 */
     
     virtual int *  get_toursites_index_by_search(std :: string str, int n)=0; /*search */
     virtual int *  get_recommended_toursites_index(int n)=0; /* recommending func */

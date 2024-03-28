@@ -16,13 +16,13 @@ protected:
   
 public :
   std::string* get_toursite_name(int index) override ;
-  int * get_toursites_index_by_search(std::string str, int n) ;
+  int * get_toursites_index_by_search(std::string str, int n) override;
   
-  int * get_recommended_toursites_index(int n);
-  int get_toursite_amount(void); 
-   int get_toursite_grade(int index);
-  std::string* get_toursite_introduction(int index);
-  Toursite * get_toursite_topo(int index);
+  int * get_recommended_toursites_index(int n)override;
+  int get_toursite_amount(void)override; 
+   int get_toursite_grade(int index)override;
+  std::string* get_toursite_introduction(int index)override;
+  ToursiteTopo * get_toursite_topo(int index)override;
 
   int release_database(void)override; /* 释放内存 */
   int load_database(std :: string relative_address)override; /* 从指定路径导入, 返回值判断是否成功 */

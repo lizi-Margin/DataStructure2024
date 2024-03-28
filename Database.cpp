@@ -48,8 +48,8 @@ int Database:: get_toursite_grade(int index)  {
   } /* 查询景点推荐度grade, grade或需单独维护 */
 std::string* Database::  get_toursite_introduction(int index){
     return new std:: string(*this-> get_toursite(index)->get_introduction()) ;} 
-Toursite * Database::  get_toursite_topo(int index) {
-    return new Toursite( *this->get_toursite(index));
+ToursiteTopo * Database::  get_toursite_topo(int index) {
+    return ( this->get_toursite(index))->get_topo();
   }
   
 int Database :: release_database(void){} /* 释放内存 */
