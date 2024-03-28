@@ -1,0 +1,144 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"C:/Users/33149/scoop/apps/gcc/current/include",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/lib/gcc/x86_64-w64-mingw32/13.2.0/include",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/x86_64-w64-mingw32/include"
+					],
+					"linkDirectories" : 
+					[
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/lib/gcc/x86_64-w64-mingw32/13.2.0",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/lib/gcc",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/x86_64-w64-mingw32/lib",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"mingw32",
+						"gcc",
+						"moldname",
+						"mingwex",
+						"kernel32",
+						"pthread",
+						"advapi32",
+						"shell32",
+						"user32",
+						"kernel32",
+						"mingw32",
+						"gcc",
+						"moldname",
+						"mingwex",
+						"kernel32"
+					]
+				},
+				"path" : "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/gcc.exe",
+				"version" : "13.2.0"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"C:/Users/33149/scoop/apps/gcc/current/include",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0/x86_64-w64-mingw32",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0/backward",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/lib/gcc/x86_64-w64-mingw32/13.2.0/include",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/x86_64-w64-mingw32/include"
+					],
+					"linkDirectories" : 
+					[
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/lib/gcc/x86_64-w64-mingw32/13.2.0",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/lib/gcc",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/x86_64-w64-mingw32/lib",
+						"C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"stdc++",
+						"mingw32",
+						"gcc_s",
+						"gcc",
+						"moldname",
+						"mingwex",
+						"kernel32",
+						"pthread",
+						"advapi32",
+						"shell32",
+						"user32",
+						"kernel32",
+						"mingw32",
+						"gcc_s",
+						"gcc",
+						"moldname",
+						"mingwex",
+						"kernel32"
+					]
+				},
+				"path" : "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/c++.exe",
+				"version" : "13.2.0"
+			},
+			"language" : "CXX",
+			"sourceFileExtensions" : 
+			[
+				"C",
+				"M",
+				"c++",
+				"cc",
+				"cpp",
+				"cxx",
+				"mm",
+				"mpp",
+				"CPP",
+				"ixx",
+				"cppm",
+				"ccm",
+				"cxxm",
+				"c++m"
+			]
+		},
+		{
+			"compiler" : 
+			{
+				"implicit" : {},
+				"path" : "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/windres.exe"
+			},
+			"language" : "RC",
+			"sourceFileExtensions" : 
+			[
+				"rc",
+				"RC"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}
