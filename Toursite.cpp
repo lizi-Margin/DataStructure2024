@@ -29,16 +29,40 @@ void ToursiteRM ::sync_grade(){
     this-> grade = this-> get_like_num() + 2* this-> get_comments_num();
   }
 
-ToursiteRM ::ToursiteRM(int index , std:: string *name ,int place_num , Place ** places,int** adjacent_matrix) {
-    this-> toursite_index = index;
-    this -> toursite_name =(name);
-    this -> place_num =  place_num;
-    this -> places = places;
-    this -> adjacent_matrix = adjacent_matrix;
+ToursiteRM :: ToursiteRM(){
+  this-> toursite_index = -1;
+  this -> toursite_name =nullptr;
+  this -> place_num =  0;
+  this -> places = nullptr;
+  this -> adjacent_matrix = nullptr;
+  like_num = 0;   
+  comments = nullptr ;
+  grade = 0;
+  address =  nullptr;
+  introduction = nullptr;
+}
+ToursiteRM ::ToursiteRM(int index , std:: string *name , std:: string *intro,int place_num  ,int likes , std:: string * add) {
+  ToursiteRM();
+  toursite_index = index;
+  toursite_name =(name);
+  introduction = intro;
+  place_num =  place_num;
+  like_num = likes;
+  address = add;
 }
 
-ToursiteRM :: ~ToursiteRM(){} 
+ToursiteRM :: ~ToursiteRM(){
+  delete this -> toursite_name ;
+  delete this -> places ;
+  delete this -> adjacent_matrix;
+  delete comments ;
+  delete address ;
+  delete introduction ;
+} 
 
+  void ToursiteRM :: set_address(std:: string* add){
+    address = add;
+  }
   std :: string* ToursiteRM ::get_name(){ 
     return ( ToursiteRM :: toursite_name); }
   int ToursiteRM ::get_index() { 

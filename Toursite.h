@@ -23,15 +23,17 @@ protected:            // 邻接矩阵
   int like_num;   
   Comments * comments ;
   int grade;
+  std::string * address;
   std::string * introduction;
   void sync_grade();
   int ** copy_adjacent_matrix();
   Place ** copy_places();
   int brute(std::string*t, std::string*p);
 public:
+  void set_address(std::string * add);
   ToursiteTopo * get_topo(); 
   ToursiteRM();
-  ToursiteRM(int index , std:: string * name ,int place_num , Place ** places,int** adjacent_matrix) ;
+  ToursiteRM(int index , std:: string *name , std:: string *intro,int place_num  ,int like_num , std:: string * add);
   ~ToursiteRM();                       // 析构函数
   /* 需要用到的 getter */
   std :: string* get_name();

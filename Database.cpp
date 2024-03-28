@@ -1,4 +1,18 @@
 # include "Database.h"
+
+Database :: Database(){
+  toursite_amount = 0;
+  toursite_list = new ToursiteRM*[DATABASE_TOURSITE_CAPACITY];
+  grade_ladder = new int[DATABASE_TOURSITE_CAPACITY];
+  ToursiteProxy proxy("toursite_table.csv") ;
+  proxy.read_all();
+  proxy .init_toursite_list(toursite_list, 9);
+}
+
+const ToursiteRM ** Database:: get_toursite_list(){
+  return toursite_list;
+}
+
 ToursiteRM * Database :: get_toursite (int index){
     return toursite_list[index];
   }

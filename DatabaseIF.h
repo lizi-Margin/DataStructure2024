@@ -1,7 +1,23 @@
 # ifndef _DATABASEIF_H_
-#define _DATABASEIF_H_
+# define _DATABASEIF_H_
 # include <string>
 
+class Place {
+public:
+  virtual int  get_index();
+  virtual std::string* get_name();
+  virtual std::string* get_label();
+  virtual int get_like_num();
+  virtual int get_comments_num();
+};
+struct ToursiteTopo
+{
+  int toursite_index ; 
+  std :: string * toursite_name ;
+  int  place_num;       // 顶点数 
+  Place **  places;        // 顶点表
+  int** adjacent_matrix;   
+};
 class  Database_IF{
 public:
 
@@ -17,25 +33,5 @@ public:
     virtual int *  get_toursites_index_by_search(std :: string str, int n)=0; /*search */
     virtual int *  get_recommended_toursites_index(int n)=0; /* recommending func */
 };
-
-struct ToursiteTopo
-{
-  int toursite_index ;
-  std :: string * toursite_name ;
-  int  place_num;       // 顶点数 
-  Place **  places;        // 顶点表
-  int** adjacent_matrix;   
-};
-
-
-class Place {
-public:
-  virtual int  get_index();
-  virtual std::string* get_name();
-  virtual std::string* get_label();
-  virtual int get_like_num();
-  virtual int get_comments_num();
-};
-
 
 #endif

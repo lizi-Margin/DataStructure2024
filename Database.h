@@ -3,6 +3,9 @@
 #include<string>
 #include "Toursite.h" 
 #include "DatabaseIF.h"
+#include "File.h"
+
+#define DATABASE_TOURSITE_CAPACITY 200
 
 class Database : public Database_IF{
 protected: 
@@ -15,6 +18,8 @@ protected:
   int * search_toursites_index_sort_by_grade (std::string *str , int n);
   
 public :
+  Database();
+  const  ToursiteRM ** get_toursite_list();
   std::string* get_toursite_name(int index) override ;
   int * get_toursites_index_by_search(std::string str, int n) override;
   
