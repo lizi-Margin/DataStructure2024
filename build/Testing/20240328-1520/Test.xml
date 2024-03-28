@@ -2,20 +2,20 @@
 <Site BuildName="Win32-ninja"
 	BuildStamp="20240328-1520-Experimental"
 	Name="DESKTOP-0I2MUS7"
-	Generator="ctest-3.29.0"
+	Generator="ctest-3.27.7"
 	CompilerName="C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/c++.exe"
 	CompilerVersion="13.2.0"
 	OSName="Windows"
 	Hostname="DESKTOP-0I2MUS7"
 	OSRelease=" Professional"
-	OSVersion=" (Build 19045)"
+	OSVersion=" (Build 9200)"
 	OSPlatform="AMD64"
 	Is64Bits="1"
-	VendorString="GenuineIntel"
-	VendorID="Intel Corporation"
-	FamilyID="6"
-	ModelID="14"
-	ProcessorCacheSize="-1"
+	VendorString=""
+	VendorID="Unknown Manufacturer"
+	FamilyID="0"
+	ModelID="0"
+	ProcessorCacheSize="0"
 	NumberOfLogicalCPU="8"
 	NumberOfPhysicalCPU="4"
 	TotalVirtualMemory="12581"
@@ -24,11 +24,11 @@
 	ProcessorClockFrequency="1190"
 	>
 	<Testing>
-		<StartDateTime>Mar 29 07:12 China Standard Time</StartDateTime>
-		<StartTestTime>1711667537</StartTestTime>
+		<StartDateTime>Mar 29 07:23 China Standard Time</StartDateTime>
+		<StartTestTime>1711668236</StartTestTime>
 		<TestList/>
-		<EndDateTime>Mar 29 07:12 China Standard Time</EndDateTime>
-		<EndTestTime>1711667537</EndTestTime>
+		<EndDateTime>Mar 29 07:23 China Standard Time</EndDateTime>
+		<EndTestTime>1711668236</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

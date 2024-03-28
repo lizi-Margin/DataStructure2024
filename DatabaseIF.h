@@ -1,7 +1,8 @@
 # ifndef _DATABASEIF_H_
 # define _DATABASEIF_H_
 # include <string>
-
+  const std::string abs_path ="c:/Users/33149/Desktop/pack/"; 
+  const std::string toursite_table ="toursite_table.csv"; 
 class Place {
 public:
   virtual int  get_index();

@@ -27,7 +27,7 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/33149/Desktop/pack"
+ConfigureCommand: "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/bin/cmake.exe" "C:/Users/33149/Desktop/pack"
 MakeCommand: "C:\Program Files\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

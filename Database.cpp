@@ -1,16 +1,23 @@
 # include "Database.h"
 
-Database :: Database(){
+void Database :: init(){
   toursite_amount = 0;
   toursite_list = new ToursiteRM*[DATABASE_TOURSITE_CAPACITY];
   grade_ladder = new int[DATABASE_TOURSITE_CAPACITY];
-  ToursiteProxy proxy("toursite_table.csv") ;
-  proxy.read_all();
-  proxy .init_toursite_list(toursite_list, 9);
+}
+Database :: Database(){
+  init();
+  load_database((abs_path+toursite_table).c_str(),5);
+  load_all();
+}
+Database :: Database(const char*toursite_table_address,int size){
+  init();
+  load_database(toursite_table_address,size);
+  load_all();
 }
 
 const ToursiteRM ** Database:: get_toursite_list(){
-  return toursite_list;
+  return (const ToursiteRM**)toursite_list;
 }
 
 ToursiteRM * Database :: get_toursite (int index){
@@ -40,6 +47,11 @@ int *   Database :: search_toursites_index_sort_by_grade (std::string * str , in
     return list;
   }
 
+int Database::load_toursite(int index){
+  if (toursite_amount <=0 || index <0 ) return -1;
+  if (toursite_list[index]->get_place_num() <=0)return -1; 
+  return toursite_list[index]->load();
+}
 
 std::string* Database ::  get_toursite_name(int index) {
     return new std::string (*(this->get_toursite(index)->get_name()));
@@ -67,8 +79,33 @@ ToursiteTopo * Database::  get_toursite_topo(int index) {
   }
   
 int Database :: release_database(void){} /* 释放内存 */
-int Database:: load_database(std :: string relative_address){} /* 从指定路径导入, 返回值判断是否成功 */
+int Database:: load_database(std :: string relative_address){
+  return load_database(relative_address.c_str(),5);
+} /* 从指定路径导入, 返回值判断是否成功 */
 
+int Database ::load_database(const char*toursite_table_address,int size){
+  ToursiteProxy proxy(toursite_table_address) ;
+      
+  if (proxy.is_open()){
+    init_toursite_list( &proxy, size);
+      
+    toursite_amount =size;
+    for (int i= 0 ; i <toursite_amount;i+=1){
+      
+      grade_ladder[i]=toursite_list[i]->get_index();  
+    
+      toursite_list[i]->print_all();
+    
+      //toursite_list[i]->load();
+    }
+  }
+  proxy.close();
+  
+  return 0;
+}
 
-
-
+void Database:: load_all(){
+    for (int i= 0 ; i <toursite_amount;i+=1){ 
+      toursite_list[i]->load();
+    }
+}
