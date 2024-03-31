@@ -7,6 +7,11 @@
 #include "File.h"
 # define TOURSITE_CAPACITY 100
 
+/*
+  Class Toursite.
+  shc 2024
+*/
+
 class Toursite
 {
 protected :

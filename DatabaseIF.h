@@ -1,12 +1,18 @@
 # ifndef _DATABASEIF_H_
 # define _DATABASEIF_H_
 # include <string>
+/* 
+  Interface for M1 database.
+  ALL definitions here below.
+  shc 2024
+*/
   const std::string abs_path ="c:/Users/33149/Desktop/pack/"; 
   const std::string toursite_table ="toursite_table.csv"; 
 class Place {
 public:
   virtual int  get_index();
   virtual std::string* get_name();
+  virtual std::string* get_introduction();
   virtual std::string* get_label();
   virtual int get_like_num();
   virtual int get_comments_num();

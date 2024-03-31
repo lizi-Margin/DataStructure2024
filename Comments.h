@@ -2,6 +2,12 @@
 #define _COMMENTS_H_
 #define NODE_CAPACITY 5
 #include<string>
+
+/*
+  A Linked list class for any kind of comment.
+  shc 2024
+*/
+
 class  Comments {
 public:
     int comments_num ;

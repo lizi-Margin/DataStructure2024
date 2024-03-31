@@ -1,5 +1,5 @@
 #include "Comments.h"
-
+/*shc 2024*/
 Comments:: Comments(){
     this -> comments_num = 0;
     this -> node_used = 0;

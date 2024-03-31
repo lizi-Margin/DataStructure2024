@@ -5,6 +5,11 @@
 # include<string>
 # include<iostream>
 
+/*
+	File IO 
+	shc 2024
+*/
+
 class File
 {
 protected:
@@ -120,9 +125,6 @@ public:
 		//return nullptr;
 		return s;
     }       
-
-
-
 
 
 	std::string * read_line(){

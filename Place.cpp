@@ -1,5 +1,6 @@
 #include "Place.h"
 #include <string>
+/*shc 2024*/
 
 int PlaceR :: get_index(){
     return this-> place_index;
@@ -7,6 +8,9 @@ int PlaceR :: get_index(){
 
 std::string*  PlaceR:: get_name() {
     return new std:: string(*this -> place_name);
+}
+std::string* PlaceR :: get_introduction(){
+    return new std:: string (*this-> place_introduction);
 }
 std::string* PlaceR :: get_label(){
     return new std:: string(*this -> place_label);
@@ -21,6 +25,9 @@ int PlaceR :: get_comments_num(){
 
 std::string*  PlaceRM:: get_name() {
     return (this -> place_name);
+}
+std::string* PlaceRM :: get_introduction(){
+    return (this-> place_introduction);
 }
 std::string*  PlaceRM:: get_label() {
     return (this -> place_label);

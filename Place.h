@@ -4,11 +4,17 @@
 #include "Comments.h"
 #include "DatabaseIF.h"
 
+/*
+  Place class for toursites.
+  shc 2024
+*/
+
 class PlaceR :public Place {
 
 protected :
   int place_index ;
   std::string * place_name; 
+  std::string * place_introduction; 
   std :: string * place_label;
 
   Comments * comments;
@@ -16,6 +22,7 @@ protected :
 public:
   int get_index() override;
   std::string* get_name() override;
+  std::string* get_introduction() override;
   std::string* get_label() override;
   int get_like_num() override;
   int get_comments_num() override;
@@ -28,6 +35,7 @@ class PlaceRM :public PlaceR {
 
 public:
   std::string* get_name() override;
+  std::string* get_introduction() override;
   std::string* get_label() override;
   void set_index(int n); 
   void set_name(std ::string * name);

@@ -7,7 +7,11 @@
 
 #define DATABASE_TOURSITE_CAPACITY 200
 
-
+/*
+  Implements of databaseIF.
+  Main class of M1 database.
+  shc 2024
+*/
 
 class Database : public Database_IF{
 protected: 
