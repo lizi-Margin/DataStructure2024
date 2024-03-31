@@ -1,10 +1,10 @@
 # ninja log v5
 4	384	7333426029640476	CMakeFiles/pack.dir/pack.cpp.obj	a2e0c4f5f89788c9
 387	584	7333426031642251	libpack.a	45440a4bfce3b9b6
-39	788	7333707383278717	CMakeFiles/pack.dir/Place.cpp.obj	500725146650ab87
-46	732	7333707382661099	CMakeFiles/pack.dir/Comments.cpp.obj	ab9d21170441853a
-21	599	7333711904026192	CMakeFiles/pack.dir/Database.cpp.obj	82ad9aac9932f574
-9	522	7333711903259709	CMakeFiles/pack.dir/main.cpp.obj	157a34f261dc5f4e
+26	535	7333715250602989	CMakeFiles/pack.dir/Place.cpp.obj	500725146650ab87
+32	599	7333715251239461	CMakeFiles/pack.dir/Comments.cpp.obj	ab9d21170441853a
+14	836	7333715253601747	CMakeFiles/pack.dir/Database.cpp.obj	82ad9aac9932f574
+8	798	7333715253172168	CMakeFiles/pack.dir/main.cpp.obj	157a34f261dc5f4e
 23	37	0	clean	4e8a265245484406
-599	777	7333711905759563	pack.exe	9ed03777fc594e2
-31	941	7333710204754584	CMakeFiles/pack.dir/Toursite.cpp.obj	a56757ff037378bf
+912	1082	7333715255917167	pack.exe	eedbf04a74c1ba57
+20	911	7333715254257058	CMakeFiles/pack.dir/Toursite.cpp.obj	a56757ff037378bf

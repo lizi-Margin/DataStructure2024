@@ -1240,3 +1240,473 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.19045 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/clang.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+      
+      The C compiler identification is Clang, found in:
+        C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/3.29.0/CompilerIdC/a.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/clang++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+      
+      The CXX compiler identification is Clang, found in:
+        C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/3.29.0/CompilerIdCXX/a.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:64 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4"
+      binary: "C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/clang-scan-deps.exe"
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/mingw32-make.exe -f Makefile cmTC_d15ff/fast
+        C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_d15ff.dir\\build.make CMakeFiles/cmTC_d15ff.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4'
+        Building C object CMakeFiles/cmTC_d15ff.dir/CMakeCCompilerABI.c.obj
+        C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang.exe   -v -MD -MT CMakeFiles/cmTC_d15ff.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_d15ff.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_d15ff.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+        (built by Brecht Sanders) clang version 17.0.4
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin
+         (in-process)
+         "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/clang.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -v -fcoverage-compilation-dir=C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4 -resource-dir C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17 -dependency-file "CMakeFiles\\\\cmTC_d15ff.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_d15ff.dir/CMakeCCompilerABI.c.obj -sys-header-deps -canonical-system-headers -c-isystem "C:\\\\Users\\\\33149\\\\scoop\\\\apps\\\\gcc\\\\current\\\\include" -cxx-isystem "C:\\\\Users\\\\33149\\\\scoop\\\\apps\\\\gcc\\\\current\\\\include" -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/usr/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include -fdebug-compilation-dir=C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4 -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -exception-model=seh -faddrsig -o "CMakeFiles\\\\cmTC_d15ff.dir\\\\CMakeCCompilerABI.c.obj" -x c "C:\\\\Program Files\\\\CMake\\\\share\\\\cmake-3.29\\\\Modules\\\\CMakeCCompilerABI.c"
+        clang -cc1 version 17.0.4 based upon LLVM 17.0.4 default target x86_64-w64-mingw32
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/usr/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         C:\\Users\\33149\\scoop\\apps\\gcc\\current\\include
+         C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include
+         C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include
+         C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include
+        End of search list.
+        Linking C executable cmTC_d15ff.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_d15ff.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_d15ff.dir/objects.a
+        C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_d15ff.dir/objects.a @CMakeFiles\\cmTC_d15ff.dir\\objects1.rsp
+        C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_d15ff.dir/objects.a -Wl,--no-whole-archive -o cmTC_d15ff.exe -Wl,--out-implib,libcmTC_d15ff.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        (built by Brecht Sanders) clang version 17.0.4
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin
+         "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/ld" -m i386pep -Bdynamic -o cmTC_d15ff.exe C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib/crt2.o C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0 -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib -v --whole-archive "CMakeFiles\\\\cmTC_d15ff.dir/objects.a" --no-whole-archive --out-implib libcmTC_d15ff.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o
+        GNU ld (Binutils for MinGW-W64 x86_64, built by Brecht Sanders) 2.41
+        mingw32-make[1]: Leaving directory 'C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:134 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [C:/Users/33149/scoop/apps/gcc/current/include]
+          add: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include]
+          add: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include]
+          add: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include]
+        end of search list found
+        collapse include dir [C:/Users/33149/scoop/apps/gcc/current/include] ==> [C:/Users/33149/scoop/apps/gcc/current/include]
+        collapse include dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include]
+        collapse include dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include]
+        collapse include dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include]
+        implicit include dirs: [C:/Users/33149/scoop/apps/gcc/current/include;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:170 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: 'C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4']
+        ignore line: []
+        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/mingw32-make.exe -f Makefile cmTC_d15ff/fast]
+        ignore line: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_d15ff.dir\\build.make CMakeFiles/cmTC_d15ff.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4']
+        ignore line: [Building C object CMakeFiles/cmTC_d15ff.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang.exe   -v -MD -MT CMakeFiles/cmTC_d15ff.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_d15ff.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles\\cmTC_d15ff.dir\\CMakeCCompilerABI.c.obj -c "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"]
+        ignore line: [(built by Brecht Sanders) clang version 17.0.4]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/clang.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -v -fcoverage-compilation-dir=C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4 -resource-dir C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17 -dependency-file "CMakeFiles\\\\cmTC_d15ff.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_d15ff.dir/CMakeCCompilerABI.c.obj -sys-header-deps -canonical-system-headers -c-isystem "C:\\\\Users\\\\33149\\\\scoop\\\\apps\\\\gcc\\\\current\\\\include" -cxx-isystem "C:\\\\Users\\\\33149\\\\scoop\\\\apps\\\\gcc\\\\current\\\\include" -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/usr/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include -fdebug-compilation-dir=C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-8fd6x4 -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -exception-model=seh -faddrsig -o "CMakeFiles\\\\cmTC_d15ff.dir\\\\CMakeCCompilerABI.c.obj" -x c "C:\\\\Program Files\\\\CMake\\\\share\\\\cmake-3.29\\\\Modules\\\\CMakeCCompilerABI.c"]
+        ignore line: [clang -cc1 version 17.0.4 based upon LLVM 17.0.4 default target x86_64-w64-mingw32]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/usr/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ C:\\Users\\33149\\scoop\\apps\\gcc\\current\\include]
+        ignore line: [ C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include]
+        ignore line: [ C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include]
+        ignore line: [ C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking C executable cmTC_d15ff.exe]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_d15ff.dir\\link.txt --verbose=1]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_d15ff.dir/objects.a]
+        ignore line: [C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_d15ff.dir/objects.a @CMakeFiles\\cmTC_d15ff.dir\\objects1.rsp]
+        ignore line: [C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang.exe  -v -Wl -v -Wl --whole-archive CMakeFiles\\cmTC_d15ff.dir/objects.a -Wl --no-whole-archive -o cmTC_d15ff.exe -Wl --out-implib libcmTC_d15ff.dll.a -Wl --major-image-version 0 --minor-image-version 0]
+        ignore line: [(built by Brecht Sanders) clang version 17.0.4]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin]
+        link line: [ "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/ld" -m i386pep -Bdynamic -o cmTC_d15ff.exe C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib/crt2.o C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0 -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib -v --whole-archive "CMakeFiles\\\\cmTC_d15ff.dir/objects.a" --no-whole-archive --out-implib libcmTC_d15ff.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+          arg [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/ld] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore
+          arg [cmTC_d15ff.exe] ==> ignore
+          arg [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib/crt2.o] ==> obj [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib/crt2.o]
+          arg [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o] ==> obj [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o]
+          arg [-LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0] ==> dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0]
+          arg [-LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib] ==> dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib]
+          arg [-LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib] ==> dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib]
+          arg [-LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib] ==> dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib]
+          arg [-v] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [CMakeFiles\\\\cmTC_d15ff.dir/objects.a] ==> ignore
+          arg [--no-whole-archive] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_d15ff.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc_eh] ==> lib [gcc_eh]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lgcc_eh] ==> lib [gcc_eh]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o] ==> obj [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        linker tool for 'C': C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/ld
+        remove lib [gcc_eh]
+        remove lib [msvcrt]
+        remove lib [gcc_eh]
+        remove lib [msvcrt]
+        collapse library dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0]
+        collapse library dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib]
+        collapse library dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib]
+        collapse library dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib]
+        implicit libs: [mingw32;gcc;moldname;mingwex;advapi32;shell32;user32;kernel32;mingw32;gcc;moldname;mingwex;kernel32]
+        implicit objs: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib/crt2.o;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        implicit dirs: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:207 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/ld" "-v"
+      GNU ld (Binutils for MinGW-W64 x86_64, built by Brecht Sanders) 2.41
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:64 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo"
+      binary: "C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/clang-scan-deps.exe"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo'
+        
+        Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/mingw32-make.exe -f Makefile cmTC_fbea8/fast
+        C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_fbea8.dir\\build.make CMakeFiles/cmTC_fbea8.dir/build
+        mingw32-make[1]: Entering directory 'C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo'
+        Building CXX object CMakeFiles/cmTC_fbea8.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -v -MD -MT CMakeFiles/cmTC_fbea8.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_fbea8.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles\\cmTC_fbea8.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+        (built by Brecht Sanders) clang version 17.0.4
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin
+         (in-process)
+         "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/clang++.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -v -fcoverage-compilation-dir=C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo -resource-dir C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17 -dependency-file "CMakeFiles\\\\cmTC_fbea8.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_fbea8.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -canonical-system-headers -c-isystem "C:\\\\Users\\\\33149\\\\scoop\\\\apps\\\\gcc\\\\current\\\\include" -cxx-isystem "C:\\\\Users\\\\33149\\\\scoop\\\\apps\\\\gcc\\\\current\\\\include" -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++ -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++ -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/usr/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include -fdeprecated-macro -fdebug-compilation-dir=C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -exception-model=seh -faddrsig -o "CMakeFiles\\\\cmTC_fbea8.dir\\\\CMakeCXXCompilerABI.cpp.obj" -x c++ "C:\\\\Program Files\\\\CMake\\\\share\\\\cmake-3.29\\\\Modules\\\\CMakeCXXCompilerABI.cpp"
+        clang -cc1 version 17.0.4 based upon LLVM 17.0.4 default target x86_64-w64-mingw32
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/x86_64-w64-mingw32"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/backward"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0/x86_64-w64-mingw32"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0/backward"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/backward"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0/x86_64-w64-mingw32"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0/backward"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2/x86_64-w64-mingw32"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2/backward"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13/x86_64-w64-mingw32"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13/backward"
+        ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/usr/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         C:\\Users\\33149\\scoop\\apps\\gcc\\current\\include
+         C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0
+         C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/x86_64-w64-mingw32
+         C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/backward
+         C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include
+         C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include
+         C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include
+        End of search list.
+        Linking CXX executable cmTC_fbea8.exe
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_fbea8.dir\\link.txt --verbose=1
+        "C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_fbea8.dir/objects.a
+        C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_fbea8.dir/objects.a @CMakeFiles\\cmTC_fbea8.dir\\objects1.rsp
+        C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_fbea8.dir/objects.a -Wl,--no-whole-archive -o cmTC_fbea8.exe -Wl,--out-implib,libcmTC_fbea8.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        (built by Brecht Sanders) clang version 17.0.4
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin
+         "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/ld" -m i386pep -Bdynamic -o cmTC_fbea8.exe C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib/crt2.o C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0 -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib -v --whole-archive "CMakeFiles\\\\cmTC_fbea8.dir/objects.a" --no-whole-archive --out-implib libcmTC_fbea8.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o
+        GNU ld (Binutils for MinGW-W64 x86_64, built by Brecht Sanders) 2.41
+        mingw32-make[1]: Leaving directory 'C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:134 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [C:/Users/33149/scoop/apps/gcc/current/include]
+          add: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0]
+          add: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/x86_64-w64-mingw32]
+          add: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/backward]
+          add: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include]
+          add: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include]
+          add: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include]
+        end of search list found
+        collapse include dir [C:/Users/33149/scoop/apps/gcc/current/include] ==> [C:/Users/33149/scoop/apps/gcc/current/include]
+        collapse include dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0]
+        collapse include dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/x86_64-w64-mingw32] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/x86_64-w64-mingw32]
+        collapse include dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/backward] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/backward]
+        collapse include dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include]
+        collapse include dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include]
+        collapse include dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include]
+        implicit include dirs: [C:/Users/33149/scoop/apps/gcc/current/include;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/x86_64-w64-mingw32;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/backward;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:170 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: 'C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo']
+        ignore line: []
+        ignore line: [Run Build Command(s): "C:/Program Files/CMake/bin/cmake.exe" -E env VERBOSE=1 C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/mingw32-make.exe -f Makefile cmTC_fbea8/fast]
+        ignore line: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_fbea8.dir\\build.make CMakeFiles/cmTC_fbea8.dir/build]
+        ignore line: [mingw32-make[1]: Entering directory 'C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo']
+        ignore line: [Building CXX object CMakeFiles/cmTC_fbea8.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -v -MD -MT CMakeFiles/cmTC_fbea8.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_fbea8.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles\\cmTC_fbea8.dir\\CMakeCXXCompilerABI.cpp.obj -c "C:\\Program Files\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"]
+        ignore line: [(built by Brecht Sanders) clang version 17.0.4]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/clang++.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -v -fcoverage-compilation-dir=C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo -resource-dir C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17 -dependency-file "CMakeFiles\\\\cmTC_fbea8.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_fbea8.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -canonical-system-headers -c-isystem "C:\\\\Users\\\\33149\\\\scoop\\\\apps\\\\gcc\\\\current\\\\include" -cxx-isystem "C:\\\\Users\\\\33149\\\\scoop\\\\apps\\\\gcc\\\\current\\\\include" -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++ -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++ -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13/x86_64-w64-mingw32 -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13/backward -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/usr/include -internal-isystem C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include -fdeprecated-macro -fdebug-compilation-dir=C:/Users/33149/Desktop/DS2024/pack/build/CMakeFiles/CMakeScratch/TryCompile-ps95qo -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -exception-model=seh -faddrsig -o "CMakeFiles\\\\cmTC_fbea8.dir\\\\CMakeCXXCompilerABI.cpp.obj" -x c++ "C:\\\\Program Files\\\\CMake\\\\share\\\\cmake-3.29\\\\Modules\\\\CMakeCXXCompilerABI.cpp"]
+        ignore line: [clang -cc1 version 17.0.4 based upon LLVM 17.0.4 default target x86_64-w64-mingw32]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/x86_64-w64-mingw32"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/backward"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0/x86_64-w64-mingw32"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include/c++/13.2.0/backward"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/x86_64-w64-mingw32"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/c++/backward"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0/x86_64-w64-mingw32"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2.0/backward"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2/x86_64-w64-mingw32"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13.2/backward"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13/x86_64-w64-mingw32"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/include/g++-v13/backward"]
+        ignore line: [ignoring nonexistent directory "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/usr/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ C:\\Users\\33149\\scoop\\apps\\gcc\\current\\include]
+        ignore line: [ C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0]
+        ignore line: [ C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/x86_64-w64-mingw32]
+        ignore line: [ C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include/c++/13.2.0/backward]
+        ignore line: [ C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/clang/17/include]
+        ignore line: [ C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/include]
+        ignore line: [ C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking CXX executable cmTC_fbea8.exe]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E cmake_link_script CMakeFiles\\cmTC_fbea8.dir\\link.txt --verbose=1]
+        ignore line: ["C:\\Program Files\\CMake\\bin\\cmake.exe" -E rm -f CMakeFiles\\cmTC_fbea8.dir/objects.a]
+        ignore line: [C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\llvm-ar.exe qc CMakeFiles\\cmTC_fbea8.dir/objects.a @CMakeFiles\\cmTC_fbea8.dir\\objects1.rsp]
+        ignore line: [C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe  -v -Wl -v -Wl --whole-archive CMakeFiles\\cmTC_fbea8.dir/objects.a -Wl --no-whole-archive -o cmTC_fbea8.exe -Wl --out-implib libcmTC_fbea8.dll.a -Wl --major-image-version 0 --minor-image-version 0]
+        ignore line: [(built by Brecht Sanders) clang version 17.0.4]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin]
+        link line: [ "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/ld" -m i386pep -Bdynamic -o cmTC_fbea8.exe C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib/crt2.o C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0 -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib -LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib -v --whole-archive "CMakeFiles\\\\cmTC_fbea8.dir/objects.a" --no-whole-archive --out-implib libcmTC_fbea8.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+          arg [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/ld] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore
+          arg [cmTC_fbea8.exe] ==> ignore
+          arg [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib/crt2.o] ==> obj [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib/crt2.o]
+          arg [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o] ==> obj [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o]
+          arg [-LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0] ==> dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0]
+          arg [-LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib] ==> dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib]
+          arg [-LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib] ==> dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib]
+          arg [-LC:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib] ==> dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib]
+          arg [-v] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [CMakeFiles\\\\cmTC_fbea8.dir/objects.a] ==> ignore
+          arg [--no-whole-archive] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_fbea8.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o] ==> obj [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        linker tool for 'CXX': C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/ld
+        remove lib [msvcrt]
+        remove lib [msvcrt]
+        collapse library dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0]
+        collapse library dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib]
+        collapse library dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib]
+        collapse library dir [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib] ==> [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib]
+        implicit libs: [stdc++;mingw32;gcc_s;gcc;moldname;mingwex;advapi32;shell32;user32;kernel32;mingw32;gcc_s;gcc;moldname;mingwex;kernel32]
+        implicit objs: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib/crt2.o;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        implicit dirs: [C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib/gcc/x86_64-w64-mingw32/13.2.0;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/lib;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/x86_64-w64-mingw32/mingw/lib;C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:207 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/ld" "-v"
+      GNU ld (Binutils for MinGW-W64 x86_64, built by Brecht Sanders) 2.41
+...

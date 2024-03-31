@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/33149/Desktop/pack
-BuildDirectory: C:/Users/33149/Desktop/pack/build
+SourceDirectory: C:/Users/33149/Desktop/DS2024/pack
+BuildDirectory: C:/Users/33149/Desktop/DS2024/pack/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -14,7 +14,7 @@ CostDataFile:
 Site: DESKTOP-0I2MUS7
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Win32-ninja
+BuildName: Win32-mingw32-make
 
 # Subprojects
 LabelsForSubprojects: 
@@ -27,8 +27,8 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/bin/cmake.exe" "C:/Users/33149/Desktop/pack"
-MakeCommand: "C:\Program Files\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/33149/Desktop/DS2024/pack"
+MakeCommand: C:/Program\ Files/CMake/bin/cmake.exe --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -63,8 +63,8 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/c++.exe
-CompilerVersion: 13.2.0
+Compiler: C:/Users/33149/scoop/apps/mingw-winlibs-llvm/current/bin/clang++.exe
+CompilerVersion: 17.0.4
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
