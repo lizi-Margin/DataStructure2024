@@ -6,17 +6,18 @@
   ALL definitions here below.
   shc 2024
 */
-  const std::string abs_path ="c:/Users/33149/Desktop/pack/"; 
-  const std::string toursite_table ="toursite_table.csv"; 
+const std::string toursite_table_name ="toursite_table.csv"; 
+
 class Place {
 public:
-  virtual int  get_index();
-  virtual std::string* get_name();
-  virtual std::string* get_introduction();
-  virtual std::string* get_label();
-  virtual int get_like_num();
-  virtual int get_comments_num();
+  virtual int  get_index()=0;
+  virtual std::string* get_name()=0;
+  virtual std::string* get_introduction()=0;
+  virtual std::string* get_label()=0;
+  virtual int get_like_num()=0;
+  virtual int get_comments_num()=0;
 };
+
 struct ToursiteTopo
 {
   int toursite_index ; 
@@ -25,9 +26,9 @@ struct ToursiteTopo
   Place **  places;        // 顶点表
   int** adjacent_matrix;   
 };
+
 class  Database_IF{
 public:
-
     virtual int release_database(void) = 0; /* 释放内存 */
     virtual int load_database(std :: string relative_address) = 0; /* 从指定路径导入, 返回值判断是否成功 */
     virtual int get_toursite_amount(void)  = 0;/* 景点数 */

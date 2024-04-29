@@ -1,9 +1,9 @@
 [
 {
   "directory": "C:/Users/33149/Desktop/DS2024/pack/build",
-  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\main.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\main.cpp",
-  "file": "C:/Users/33149/Desktop/DS2024/pack/main.cpp",
-  "output": "CMakeFiles/pack.dir/main.cpp.obj"
+  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\test.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\test.cpp",
+  "file": "C:/Users/33149/Desktop/DS2024/pack/test.cpp",
+  "output": "CMakeFiles/pack.dir/test.cpp.obj"
 },
 {
   "directory": "C:/Users/33149/Desktop/DS2024/pack/build",
@@ -25,8 +25,8 @@
 },
 {
   "directory": "C:/Users/33149/Desktop/DS2024/pack/build",
-  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\Comments.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\Comments.cpp",
-  "file": "C:/Users/33149/Desktop/DS2024/pack/Comments.cpp",
-  "output": "CMakeFiles/pack.dir/Comments.cpp.obj"
+  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\util\\Comments.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\util\\Comments.cpp",
+  "file": "C:/Users/33149/Desktop/DS2024/pack/util/Comments.cpp",
+  "output": "CMakeFiles/pack.dir/util/Comments.cpp.obj"
 }
 ]

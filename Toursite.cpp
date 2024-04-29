@@ -4,14 +4,16 @@
 
 ToursiteTopo  * ToursiteRM :: get_topo(){
     ToursiteTopo  *topo = new ToursiteTopo;
-    topo->adjacent_matrix = this->copy_adjacent_matrix();
+    topo->toursite_name = new std:: string();
+    topo->toursite_name = toursite_name;
+    topo->adjacent_matrix = this->_copy_adjacent_matrix();
     topo->toursite_index = this -> toursite_index;
     topo->place_num = this-> place_num; 
-    topo->places = nullptr; //->copy_places();
+    topo->places = _copy_places();
     return topo;
 }
 // got problem below
-int** ToursiteRM:: copy_adjacent_matrix(){
+int** ToursiteRM:: _copy_adjacent_matrix(){
     int ** m  =  new int*[TOURSITE_CAPACITY];
     for (int i = this -> place_num -1  ; i >= 0 ; i -=1){
         m [i] = new int [TOURSITE_CAPACITY];
@@ -21,52 +23,88 @@ int** ToursiteRM:: copy_adjacent_matrix(){
     }
     return m ;
   }
-Place * *ToursiteRM :: copy_places(){
+Place * *ToursiteRM :: _copy_places(){
     Place ** plcs = new Place*[TOURSITE_CAPACITY];
-    for (int i = this-> place_num -1; i >= 0 ; i-= 1){
-        plcs[i] = this-> places[i];
+    for (int i = this-> place_num -1; i >= 0 ; i-= 1){        
+        PlaceRM* new_place = (new PlaceRM(places[i])); 
+        plcs[i] = (Place*)( new_place);
     }
     return plcs;
 }
-void ToursiteRM ::sync_grade(){
+void ToursiteRM ::_sync_grade(){
     this-> grade = this-> get_like_num() + 2* 0;//this-> get_comments_num();
   }
 
-void ToursiteRM ::set_adjacent_matrix(int** adj_p){
-  this->adjacent_matrix = adj_p;
-}
+
 ToursiteRM :: ToursiteRM(){
   this-> toursite_index = -1;
   this -> toursite_name =nullptr;
-  this -> place_num =  0;
-  this -> places = nullptr;
-  this -> adjacent_matrix = nullptr;
-  like_num = 0;   
-  comments = nullptr ;
-  grade = 0;
-  address =  nullptr;
   introduction = nullptr;
+  this -> place_num =  0;
+  like_num = 0;   
+  address =  nullptr;
+  grade = 0; 
+  this -> places = nullptr; 
+  this -> adjacent_matrix = nullptr; 
+  comments = nullptr ;
+  
 }
-ToursiteRM ::ToursiteRM(int index , std:: string *name , std:: string *intro,int place_num  ,int likes , std:: string * add) {
-  ToursiteRM();
+void ToursiteRM ::set_info(int index , std:: string *name , std:: string *intro,int place_num  ,int likes , std:: string * add) {
   this->toursite_index = index;
   toursite_name =(name);
   introduction = intro;
   this->place_num =  place_num;
   like_num = likes;
   address = add;
-}
-int ToursiteRM::load(){
-  if (address->length()<=2) return -1;
-    
-  ToursiteProxy proxy(std::string(abs_path+*address+std::to_string(toursite_index)+"/adj_matrix.csv").c_str()) ;
   
-  if (proxy.is_open()){
-    return load_adj_matrix(&proxy );
-  } 
-  return -1;
 }
-int ToursiteRM:: load_adj_matrix(ToursiteProxy * proxy ){
+
+int ToursiteRM::load(){
+  
+  if (address->length()<=2) return 1;
+    
+  ToursiteProxy adj_proxy(std::string(*address+std::to_string(toursite_index)+"/adj_matrix.csv").c_str()) ;
+
+  ToursiteProxy places_proxy(std::string(*address+std::to_string(toursite_index)+"/places.csv").c_str()) ;
+
+  if (adj_proxy.is_open()){
+    int adj_ret = _load_adj_matrix(&adj_proxy );    
+    adj_proxy.close();
+  } 
+  
+  if (places_proxy.is_open()){
+    int places_ret = _load_places(&places_proxy );
+    places_proxy.close();
+  }
+  return 1;
+}
+
+int ToursiteRM:: _load_places(ToursiteProxy * proxy){
+    places = new PlaceRM*[place_num];
+		proxy->read_line();	
+		for ( int i = 0 ; i < place_num ; i++){
+			int index ;
+			std:: string * name ;
+			std:: string * introduction ;
+			std:: string * label ;
+			int likes;
+			
+			proxy->read_colomn(index);	
+		  proxy->	read_colomn(name);	
+			proxy->read_colomn(introduction);	
+			proxy->read_colomn(label);	
+			proxy->read_colomn(likes);	
+			places[i] = new  PlaceRM();		
+      
+      places[i]->set_info  (index,name,introduction,label,likes);
+		}
+ 
+    //////////////////////////debug
+		// _print_matrix();
+
+		return 0;
+}
+int ToursiteRM:: _load_adj_matrix(ToursiteProxy * proxy ){
 		proxy->read_line();	
 		int n =place_num;	
 		int ** m  =  new int*[TOURSITE_CAPACITY];	
@@ -78,8 +116,11 @@ int ToursiteRM:: load_adj_matrix(ToursiteProxy * proxy ){
 				m[i][j] =route_len;
 			}
 		}
-		set_adjacent_matrix(m);
-		printMatrix();
+		adjacent_matrix = m;
+
+    //////////////////////////debug
+		// _print_matrix();
+
 		return 0;
 	}
 ToursiteRM :: ~ToursiteRM(){
@@ -91,9 +132,7 @@ ToursiteRM :: ~ToursiteRM(){
   delete introduction ;
 } 
 
-  void ToursiteRM :: set_address(std:: string* add){
-    address = add;
-  }
+
   std :: string* ToursiteRM ::get_name(){ 
     return ( ToursiteRM :: toursite_name); }
   int ToursiteRM ::get_index() { 
@@ -109,42 +148,48 @@ ToursiteRM :: ~ToursiteRM(){
   std::string*  ToursiteRM ::get_introduction ( ){
     return  (  this->introduction); };
   int ToursiteRM ::get_grade(){
-    this->sync_grade();
+    this->_sync_grade();
     return this-> grade;} 
 /*
   Place *  get_place ( int index); 
   Place *  get_place ( std :: string name);
   int get_distance(int index1,int index2);             
 */
-  void ToursiteRM ::printMatrix(){
-		for(int i = 0; i<place_num;i+=1){
-			for(int j= 0; j<place_num ;j+=1){
-				std::cout<<adjacent_matrix[i][j]<<" ";
+
+ 
+void ToursiteRM ::print_2d_matrix(int** m,int place_n){
+		for(int i = 0; i<place_n;i+=1){
+			for(int j= 0; j<place_n ;j+=1){
+				std::cout<<m[i][j]<<" ";
 			}
 				std::cout<<"\n";
 		}
-  }
-  bool ToursiteRM ::name_has_substring (std::string* str) /* using BM/KMT algorism */
-  {
-    if( this-> brute(this->toursite_name , str) >= 0) return 1;  
-    return this-> brute(str ,this->toursite_name) >= 0;
-  }
-int ToursiteRM :: brute(std::string *t, std::string* p) {
-    const int m = p->length(), n = t->length();
-    int align; // 模式串的对齐位置
-    int i; // 模式串中的下标
+} 
 
-    // 循环执行以下步骤，直到全部字符比对成功或模式串的右边界超过了文本串的右边界
-    for (align = 0; align + i < n && i >= 0; align++) {
-        // 从右向左逐个比对，直到全部字符比对成功或某个字符比对失败
-        for (i = m - 1; i >= 0 && t[align + i] == p[i]; i--);
-        // 如果全部字符比对成功，则退出循环，否则就将模式串向右移动一个字符
-        if (i < 0) break;
+  void ToursiteRM ::_print_matrix(){
+		ToursiteRM::print_2d_matrix(adjacent_matrix,place_num);
+  }
+  bool ToursiteRM ::name_match_string (std::string* str) /* using BM/KMT algorism */
+  {
+    if( this-> _brute(this->toursite_name , str) >= 0) return 1;  
+    return this-> _brute(str ,this->toursite_name) >= 0;
+  }
+int ToursiteRM :: _brute(std::string *t, std::string* p) {
+    const int m = p->length(), n = t->length();
+    int j;
+    int i; 
+
+    for (i=0 ; i+n < m; i+=1){
+      for(j=0; (*t)[j]==(*p)[i+j];j+=1){
+        if (j>= n-1)
+          {
+            return j;
+          }
+      }
     }
 
-    return i < 0 // 如果比对成功的话
-           ? align // 就返回模式串的对齐位置
-           : -1; // 否则就返回-1
+      
+    return -1;
 }
 
 
@@ -154,14 +199,13 @@ int ToursiteRM :: brute(std::string *t, std::string* p) {
   }
   void ToursiteRM ::add_like(){this -> like_num += 1;}
 
-void ToursiteRM::print_all(){
+void ToursiteRM::print_info(){
   std::cout<< toursite_index<< "|"<<
   *toursite_name<< "|"<<
   *introduction <<"|"<<
   place_num <<"|"<<
   like_num<<"|"<<
   *address <<std ::endl;
-
 }
 
 

@@ -522,30 +522,6 @@ pack/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/build
 .PHONY : pack/fast
 
-Comments.obj: Comments.cpp.obj
-.PHONY : Comments.obj
-
-# target to build an object file
-Comments.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/Comments.cpp.obj
-.PHONY : Comments.cpp.obj
-
-Comments.i: Comments.cpp.i
-.PHONY : Comments.i
-
-# target to preprocess a source file
-Comments.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/Comments.cpp.i
-.PHONY : Comments.cpp.i
-
-Comments.s: Comments.cpp.s
-.PHONY : Comments.s
-
-# target to generate assembly for a file
-Comments.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/Comments.cpp.s
-.PHONY : Comments.cpp.s
-
 Database.obj: Database.cpp.obj
 .PHONY : Database.obj
 
@@ -618,29 +594,53 @@ Toursite.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/Toursite.cpp.s
 .PHONY : Toursite.cpp.s
 
-main.obj: main.cpp.obj
-.PHONY : main.obj
+test.obj: test.cpp.obj
+.PHONY : test.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/main.cpp.obj
-.PHONY : main.cpp.obj
+test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/test.cpp.obj
+.PHONY : test.cpp.obj
 
-main.i: main.cpp.i
-.PHONY : main.i
+test.i: test.cpp.i
+.PHONY : test.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/main.cpp.i
-.PHONY : main.cpp.i
+test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/test.cpp.i
+.PHONY : test.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+test.s: test.cpp.s
+.PHONY : test.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/main.cpp.s
-.PHONY : main.cpp.s
+test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/test.cpp.s
+.PHONY : test.cpp.s
+
+util/Comments.obj: util/Comments.cpp.obj
+.PHONY : util/Comments.obj
+
+# target to build an object file
+util/Comments.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/util/Comments.cpp.obj
+.PHONY : util/Comments.cpp.obj
+
+util/Comments.i: util/Comments.cpp.i
+.PHONY : util/Comments.i
+
+# target to preprocess a source file
+util/Comments.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/util/Comments.cpp.i
+.PHONY : util/Comments.cpp.i
+
+util/Comments.s: util/Comments.cpp.s
+.PHONY : util/Comments.s
+
+# target to generate assembly for a file
+util/Comments.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/util/Comments.cpp.s
+.PHONY : util/Comments.cpp.s
 
 # Help Target
 help:
@@ -682,9 +682,6 @@ help:
 	@echo ... NightlyTest
 	@echo ... NightlyUpdate
 	@echo ... pack
-	@echo ... Comments.obj
-	@echo ... Comments.i
-	@echo ... Comments.s
 	@echo ... Database.obj
 	@echo ... Database.i
 	@echo ... Database.s
@@ -694,9 +691,12 @@ help:
 	@echo ... Toursite.obj
 	@echo ... Toursite.i
 	@echo ... Toursite.s
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... test.obj
+	@echo ... test.i
+	@echo ... test.s
+	@echo ... util/Comments.obj
+	@echo ... util/Comments.i
+	@echo ... util/Comments.s
 .PHONY : help
 
 

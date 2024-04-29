@@ -98,5 +98,5 @@ CMakeFiles/pack.dir/Place.cpp.obj: \
   C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0/bits/uses_allocator.h \
   C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0/bits/uses_allocator_args.h \
   C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0/tuple \
-  C:/Users/33149/Desktop/DS2024/pack/Comments.h \
+  C:/Users/33149/Desktop/DS2024/pack/util/Comments.h \
   C:/Users/33149/Desktop/DS2024/pack/DatabaseIF.h
