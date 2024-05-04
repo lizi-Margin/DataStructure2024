@@ -3,6 +3,7 @@
 /*shc 2024*/
 
 ToursiteTopo  * ToursiteRM :: get_topo(){
+    _check_and_load();
     ToursiteTopo  *topo = new ToursiteTopo;
     topo->toursite_name = new std:: string();
     topo->toursite_name = toursite_name;
@@ -37,15 +38,17 @@ void ToursiteRM ::_sync_grade(){
 
 
 ToursiteRM :: ToursiteRM(){
-  this-> toursite_index = -1;
-  this -> toursite_name =nullptr;
+  loaded = false;
+
+  toursite_index = -1;
+  toursite_name =nullptr;
   introduction = nullptr;
-  this -> place_num =  0;
+  place_num =  0;
   like_num = 0;   
   address =  nullptr;
   grade = 0; 
-  this -> places = nullptr; 
-  this -> adjacent_matrix = nullptr; 
+  places = nullptr; 
+  adjacent_matrix = nullptr; 
   comments = nullptr ;
   
 }
@@ -60,23 +63,34 @@ void ToursiteRM ::set_info(int index , std:: string *name , std:: string *intro,
 }
 
 int ToursiteRM::load(){
-  
-  if (address->length()<=2) return 1;
+  // if (loaded) return 0;
+  // if (address->length()<=2) return 1;
     
   ToursiteProxy adj_proxy(std::string(*address+std::to_string(toursite_index)+"/adj_matrix.csv").c_str()) ;
-
   ToursiteProxy places_proxy(std::string(*address+std::to_string(toursite_index)+"/places.csv").c_str()) ;
 
+  int adj_ret = 1 ;
+  int places_ret = 1;
+
   if (adj_proxy.is_open()){
-    int adj_ret = _load_adj_matrix(&adj_proxy );    
+    adj_ret = _load_adj_matrix(&adj_proxy );    
     adj_proxy.close();
   } 
   
   if (places_proxy.is_open()){
-    int places_ret = _load_places(&places_proxy );
+    places_ret = _load_places(&places_proxy );
     places_proxy.close();
   }
-  return 1;
+
+  if (!(adj_ret == 0 && places_ret == 0)){return 1 ;}
+
+  loaded = true;
+  return 0;
+}
+
+int ToursiteRM:: _check_and_load(){
+  if (loaded) {return 0;}
+  return load();
 }
 
 int ToursiteRM:: _load_places(ToursiteProxy * proxy){

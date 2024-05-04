@@ -11,3 +11,10 @@
 * 场所逻辑有待完善,虽然接口已经支持调用。
 ---
 <center>DEBUGINGGG...</center>
+
+## Development Log
+
+### 2024.5.4 
+* 新增自动加载景点信息功能，以实现动态加载。
+* 修改了导致编译器'warning'的代码。
+* 新增List和ChunkList。

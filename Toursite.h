@@ -38,6 +38,7 @@ protected:            // 邻接矩阵
   /* struct */
   Comments * comments ;
   
+  int _check_and_load();
 
   int _load_adj_matrix(ToursiteProxy * proxy );
   int _load_places(ToursiteProxy * proxy);
@@ -65,7 +66,7 @@ public:
   void add_like();
   void print_info(); 
   
-  bool name_match_string (std::string *str); /* using BM/KMT algorism */ 
+  bool name_match_string (std::string *str); /* using Brute/BM/KMT algorism */ 
   ~ToursiteRM();                       // 析构函数
 
   /* getter */

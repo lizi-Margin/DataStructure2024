@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/pack.dir/test.cpp.obj.d"
   "CMakeFiles/pack.dir/util/Comments.cpp.obj"
   "CMakeFiles/pack.dir/util/Comments.cpp.obj.d"
+  "CMakeFiles/pack.dir/util/List.cpp.obj"
+  "CMakeFiles/pack.dir/util/List.cpp.obj.d"
   "libpack.dll.a"
   "pack.exe"
   "pack.exe.manifest"

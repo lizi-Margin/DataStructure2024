@@ -642,6 +642,30 @@ util/Comments.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/util/Comments.cpp.s
 .PHONY : util/Comments.cpp.s
 
+util/List.obj: util/List.cpp.obj
+.PHONY : util/List.obj
+
+# target to build an object file
+util/List.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/util/List.cpp.obj
+.PHONY : util/List.cpp.obj
+
+util/List.i: util/List.cpp.i
+.PHONY : util/List.i
+
+# target to preprocess a source file
+util/List.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/util/List.cpp.i
+.PHONY : util/List.cpp.i
+
+util/List.s: util/List.cpp.s
+.PHONY : util/List.s
+
+# target to generate assembly for a file
+util/List.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\pack.dir\build.make CMakeFiles/pack.dir/util/List.cpp.s
+.PHONY : util/List.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -697,6 +721,9 @@ help:
 	@echo ... util/Comments.obj
 	@echo ... util/Comments.i
 	@echo ... util/Comments.s
+	@echo ... util/List.obj
+	@echo ... util/List.i
+	@echo ... util/List.s
 .PHONY : help
 
 

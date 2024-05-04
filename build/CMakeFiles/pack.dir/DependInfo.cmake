@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/33149/Desktop/DS2024/pack/Toursite.cpp" "CMakeFiles/pack.dir/Toursite.cpp.obj" "gcc" "CMakeFiles/pack.dir/Toursite.cpp.obj.d"
   "C:/Users/33149/Desktop/DS2024/pack/test.cpp" "CMakeFiles/pack.dir/test.cpp.obj" "gcc" "CMakeFiles/pack.dir/test.cpp.obj.d"
   "C:/Users/33149/Desktop/DS2024/pack/util/Comments.cpp" "CMakeFiles/pack.dir/util/Comments.cpp.obj" "gcc" "CMakeFiles/pack.dir/util/Comments.cpp.obj.d"
+  "C:/Users/33149/Desktop/DS2024/pack/util/List.cpp" "CMakeFiles/pack.dir/util/List.cpp.obj" "gcc" "CMakeFiles/pack.dir/util/List.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

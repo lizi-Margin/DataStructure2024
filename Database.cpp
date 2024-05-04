@@ -129,6 +129,7 @@ ToursiteTopo * Database::  get_toursite_topo(int index) {
 int Database :: release_database(void){
   delete[] grade_ladder;
   delete[] toursite_list;
+  return 0 ;
 } /* 释放内存 */
 
 Database::~Database(){

@@ -54,7 +54,7 @@ int main (){
 
     Database * db  = new Database();
     db->load_database(abs_path);
-    db->load_all();
+    // db->load_all(); //默认自动加载需要的景点,
 
     use_interface(db);
     

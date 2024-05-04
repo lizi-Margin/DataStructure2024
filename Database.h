@@ -15,11 +15,13 @@
 
 class Database : public Database_IF{
 protected: 
-
   int toursite_amount ;
+
+  /* main list */
   ToursiteRM ** toursite_list; //access with the index
   ToursiteRM * get_toursite (int index);
 
+  /* sorted index list */
   int * grade_ladder ;//sort all toursite with grade , toursite presented by index
   
   void  _init();

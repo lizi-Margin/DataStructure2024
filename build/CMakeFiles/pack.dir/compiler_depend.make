@@ -677,6 +677,9 @@ CMakeFiles/pack.dir/util/Comments.cpp.obj: C:/Users/33149/Desktop/DS2024/pack/ut
   C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/x86_64-w64-mingw32/include/vadefs.h \
   C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/x86_64-w64-mingw32/include/wchar.h
 
+CMakeFiles/pack.dir/util/List.cpp.obj: C:/Users/33149/Desktop/DS2024/pack/util/List.cpp \
+  C:/Users/33149/Desktop/DS2024/pack/util/List.h
+
 
 C:/Users/33149/Desktop/DS2024/pack/Database.cpp:
 
@@ -999,3 +1002,7 @@ C:/Users/33149/Desktop/DS2024/pack/Place.cpp:
 C:/Users/33149/Desktop/DS2024/pack/Toursite.cpp:
 
 C:/Users/33149/Desktop/DS2024/pack/util/Comments.cpp:
+
+C:/Users/33149/Desktop/DS2024/pack/util/List.cpp:
+
+C:/Users/33149/Desktop/DS2024/pack/util/List.h:

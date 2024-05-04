@@ -19,10 +19,8 @@ public:
 		:filename(fn)
 	{
 	}
-	~File(){
-	//////////	delete &filename ; ///排了一夜的bug
-		}
-
+	~File(){}
+	
 	bool is_open(){return 0;}
 
 };
@@ -35,10 +33,13 @@ public:
 	{
 		ofs = new std::ofstream(filename);	
 	}
-	~OFile(){delete &filename ,&ofs;}
+	~OFile(){
+		close();
+		delete ofs;
+	}
 
 	bool is_open(){return ofs->is_open();}
-	void close();
+	void close(){}
     //文本读写
 	void write_text(const std:: string* content)
 	{
@@ -59,7 +60,7 @@ public:
 	}
 	~IFile(){
 		close();		
-	//	delete &filename ;
+		delete ifs;
 		}
 
 	bool is_open(){
@@ -67,7 +68,6 @@ public:
 
 	void close(){
 		ifs->close();
-		//delete &ifs;
 		return;
 	}
 
