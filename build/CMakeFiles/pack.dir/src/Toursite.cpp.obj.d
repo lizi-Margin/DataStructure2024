@@ -153,4 +153,6 @@ CMakeFiles/pack.dir/src/Toursite.cpp.obj: \
   C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0/bits/fstream.tcc \
   C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0/sstream \
   C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0/bits/sstream.tcc \
-  C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0/iostream
+  C:/Users/33149/scoop/apps/mingw-winlibs-llvm/13.2.0-17.0.4-11.0.1-r2/include/c++/13.2.0/iostream \
+  C:/Users/33149/Desktop/DS2024/pack/src/../util/tables.h \
+  C:/Users/33149/Desktop/DS2024/pack/src/../util/List.h
