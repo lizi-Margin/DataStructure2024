@@ -17,3 +17,9 @@
 * 新增自动加载景点信息功能，以实现动态加载。
 * 修改了导致编译器'warning'的代码。
 * 新增List和ChunkList。
+
+### 2024.5.5 
+* 新增数据结构ChunkList<>用于替代vector<>
+* 新增TableBase用于加载关系型数据库表格
+* 将开发: TableComments & TableDiary 用于加载评价表格和日记表格
+* 正在开发: 将数据保存硬盘

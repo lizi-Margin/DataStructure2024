@@ -1,5 +1,5 @@
-# include "Database.h"
-# include "util/utils.h"
+# include "../Database.h"
+# include "../util/utils.h"
 /*shc 2024*/
 
 void Database :: _init(){
@@ -12,7 +12,7 @@ Database :: Database(){
 }
 
 
-int Database:: _init_toursite_list (ToursiteProxy * proxy, int len,std::string*relative_address){
+int Database:: _init_toursite_list (CSVReader * proxy, int len,std::string*relative_address){
 		proxy->read_line();
 		for ( int i = 0 ; i < len ; i++){
 			int index ;
@@ -145,7 +145,7 @@ int Database:: load_database(std :: string relative_address){
 int Database ::load_database(std::string relative_address ,int size){
   std:: string * address = new std::string(relative_address);
 
-  ToursiteProxy proxy((*address + toursite_table_name).c_str()) ;
+  CSVReader proxy((*address + toursite_table_name).c_str()) ;
   if (proxy.is_open()){
     _init_toursite_list( &proxy, size,address);
       
@@ -163,5 +163,11 @@ int Database ::load_database(std::string relative_address ,int size){
 void Database:: load_all(){
     for (int i= 0 ; i <toursite_amount;i+=1){ 
       toursite_list[i]->load();
+    }
+}
+
+void Database::save_all(){
+    for (int i= 0 ; i <toursite_amount;i+=1){ 
+      toursite_list[i]->save();
     }
 }

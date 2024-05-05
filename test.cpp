@@ -2,7 +2,7 @@
 #include "DatabaseIF.h"
 #include "Database.h"
 #include "util/utils.h"
-#include "Toursite.h"
+#include "util/List.h"
 
 
 /*
@@ -44,9 +44,27 @@ int   use_interface(Database_IF * a ){
   return 0;
 }
 
+void use_int_list(List<int> * list ){
+  for (int i = 0 ; i < 20 ; i +=1){
+    list->append(i);
+  }
+  list->print(); 
+}
+void use_string_list(List<std::string> * list ){
+  for (int i = 0 ; i < 20 ; i +=1){
+    char s[2] ;
+    s[0] = (char)i + 48;
+    s[1] = '\0';
+    list->append(std::string(s));
+  }
+  list->print(); 
+}
+
+
 
 
 std:: string abs_path =  std::string("C:/Users/33149/Desktop/DS2024/pack/Database/");
+const int chunk_size = 5;
 
 int main (){
     
@@ -54,10 +72,12 @@ int main (){
 
     Database * db  = new Database();
     db->load_database(abs_path);
-    // db->load_all(); //默认自动加载需要的景点,
-
     use_interface(db);
-    
+
+    ChunkList<std::string> *  cl = new  ChunkList<std::string>(5);
+    use_string_list(cl); 
+    cl->print();
+
     return 0;
 }
 

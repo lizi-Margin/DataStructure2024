@@ -25,7 +25,7 @@ protected:
   int * grade_ladder ;//sort all toursite with grade , toursite presented by index
   
   void  _init();
-  int _init_toursite_list (ToursiteProxy * proxy, int len,std::string*relative_address);
+  int _init_toursite_list (CSVReader * proxy, int len,std::string*relative_address);
    
   int * _search_toursites_index_sort_by_grade (std::string *str , int n); 
   int * _get_top_toursites_index_in_grade_ladder(int n); 
@@ -38,6 +38,7 @@ public :
   int load_database(std :: string relative_address,int size);
   int load_toursite(int index);
   void  load_all();
+  void  save_all();
   
   const  ToursiteRM ** get_toursite_list(); 
   std::string* get_toursite_name(int index) override ;

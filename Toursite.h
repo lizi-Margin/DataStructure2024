@@ -40,8 +40,11 @@ protected:            // 邻接矩阵
   
   int _check_and_load();
 
-  int _load_adj_matrix(ToursiteProxy * proxy );
-  int _load_places(ToursiteProxy * proxy);
+  int _load_adj_matrix(CSVReader * proxy );
+  int _load_places(CSVReader * proxy);
+  int _save_adj_matrix(CSVWriter * proxy );
+  int _save_places(CSVWriter * proxy);
+
 
   void _sync_grade();
 
@@ -59,7 +62,7 @@ public:
   static void print_2d_matrix(int** m,int place_n);
   
   int load();
-
+  int save();
 
   
   void add_comment(std:: string*content);

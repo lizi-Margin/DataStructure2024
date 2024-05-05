@@ -1,4 +1,4 @@
-# include "Toursite.h"
+# include "../Toursite.h"
 #include <iostream>
 /*shc 2024*/
 
@@ -66,8 +66,8 @@ int ToursiteRM::load(){
   // if (loaded) return 0;
   // if (address->length()<=2) return 1;
     
-  ToursiteProxy adj_proxy(std::string(*address+std::to_string(toursite_index)+"/adj_matrix.csv").c_str()) ;
-  ToursiteProxy places_proxy(std::string(*address+std::to_string(toursite_index)+"/places.csv").c_str()) ;
+  CSVReader adj_proxy(std::string(*address+std::to_string(toursite_index)+"/adj_matrix.csv").c_str()) ;
+  CSVReader places_proxy(std::string(*address+std::to_string(toursite_index)+"/places.csv").c_str()) ;
 
   int adj_ret = 1 ;
   int places_ret = 1;
@@ -88,12 +88,58 @@ int ToursiteRM::load(){
   return 0;
 }
 
+int ToursiteRM::save(){
+  // if (loaded) return 0;
+  // if (address->length()<=2) return 1;
+    
+  CSVWriter adj_proxy(std::string(*address+std::to_string(toursite_index)+"/adj_matrix.csv").c_str()) ;
+  CSVWriter places_proxy(std::string(*address+std::to_string(toursite_index)+"/places.csv").c_str()) ;
+
+  int adj_ret = 1 ;
+  int places_ret = 1;
+
+  if (adj_proxy.is_open()){
+    adj_ret = _save_adj_matrix(&adj_proxy );    
+    adj_proxy.close();
+  } 
+  
+  if (places_proxy.is_open()){
+    places_ret = _save_places(&places_proxy );
+    places_proxy.close();
+  }
+
+  if (!(adj_ret == 0 && places_ret == 0)){return 1 ;}
+
+  return 0;
+}
+
 int ToursiteRM:: _check_and_load(){
   if (loaded) {return 0;}
   return load();
 }
-
-int ToursiteRM:: _load_places(ToursiteProxy * proxy){
+int ToursiteRM:: _save_places(CSVWriter * proxy){
+		proxy->write_line("#");	
+		for ( int i = 0 ; i < place_num ; i++){
+		  proxy->write_colomn(places[i]->get_index());	
+		  proxy->write_colomn(places[i]->get_name());	
+			proxy->write_colomn(places[i]->get_introduction());	
+			proxy->write_colomn(places[i]->get_label());	
+			proxy->write_colomn(places[i]->get_like_num());	    
+		}
+ 
+		return 0;
+}
+int ToursiteRM:: _save_adj_matrix(CSVWriter * proxy ){
+		proxy->write_line("#");	
+		int n =place_num;	
+		for(int i = 0; i<n;i+=1){
+			for(int j= 0; j<n ;j+=1){
+				proxy->write_colomn(adjacent_matrix[i][j]);
+			}
+		}
+		return 0;
+	}
+int ToursiteRM:: _load_places(CSVReader * proxy){
     places = new PlaceRM*[place_num];
 		proxy->read_line();	
 		for ( int i = 0 ; i < place_num ; i++){
@@ -118,7 +164,7 @@ int ToursiteRM:: _load_places(ToursiteProxy * proxy){
 
 		return 0;
 }
-int ToursiteRM:: _load_adj_matrix(ToursiteProxy * proxy ){
+int ToursiteRM:: _load_adj_matrix(CSVReader * proxy ){
 		proxy->read_line();	
 		int n =place_num;	
 		int ** m  =  new int*[TOURSITE_CAPACITY];	

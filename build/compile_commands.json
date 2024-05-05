@@ -7,32 +7,26 @@
 },
 {
   "directory": "C:/Users/33149/Desktop/DS2024/pack/build",
-  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\Database.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\Database.cpp",
-  "file": "C:/Users/33149/Desktop/DS2024/pack/Database.cpp",
-  "output": "CMakeFiles/pack.dir/Database.cpp.obj"
+  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\src\\Database.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\src\\Database.cpp",
+  "file": "C:/Users/33149/Desktop/DS2024/pack/src/Database.cpp",
+  "output": "CMakeFiles/pack.dir/src/Database.cpp.obj"
 },
 {
   "directory": "C:/Users/33149/Desktop/DS2024/pack/build",
-  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\Toursite.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\Toursite.cpp",
-  "file": "C:/Users/33149/Desktop/DS2024/pack/Toursite.cpp",
-  "output": "CMakeFiles/pack.dir/Toursite.cpp.obj"
+  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\src\\Place.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\src\\Place.cpp",
+  "file": "C:/Users/33149/Desktop/DS2024/pack/src/Place.cpp",
+  "output": "CMakeFiles/pack.dir/src/Place.cpp.obj"
 },
 {
   "directory": "C:/Users/33149/Desktop/DS2024/pack/build",
-  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\Place.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\Place.cpp",
-  "file": "C:/Users/33149/Desktop/DS2024/pack/Place.cpp",
-  "output": "CMakeFiles/pack.dir/Place.cpp.obj"
+  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\src\\Toursite.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\src\\Toursite.cpp",
+  "file": "C:/Users/33149/Desktop/DS2024/pack/src/Toursite.cpp",
+  "output": "CMakeFiles/pack.dir/src/Toursite.cpp.obj"
 },
 {
   "directory": "C:/Users/33149/Desktop/DS2024/pack/build",
-  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\util\\Comments.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\util\\Comments.cpp",
-  "file": "C:/Users/33149/Desktop/DS2024/pack/util/Comments.cpp",
-  "output": "CMakeFiles/pack.dir/util/Comments.cpp.obj"
-},
-{
-  "directory": "C:/Users/33149/Desktop/DS2024/pack/build",
-  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\util\\List.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\util\\List.cpp",
-  "file": "C:/Users/33149/Desktop/DS2024/pack/util/List.cpp",
-  "output": "CMakeFiles/pack.dir/util/List.cpp.obj"
+  "command": "C:\\Users\\33149\\scoop\\apps\\mingw-winlibs-llvm\\current\\bin\\clang++.exe   -g -o CMakeFiles\\pack.dir\\util\\src\\Comments.cpp.obj -c C:\\Users\\33149\\Desktop\\DS2024\\pack\\util\\src\\Comments.cpp",
+  "file": "C:/Users/33149/Desktop/DS2024/pack/util/src/Comments.cpp",
+  "output": "CMakeFiles/pack.dir/util/src/Comments.cpp.obj"
 }
 ]

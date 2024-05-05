@@ -21,6 +21,9 @@ public:
 	}
 	~File(){}
 	
+	std::string get_filename(){
+		return filename;
+	}
 	bool is_open(){return 0;}
 
 };
@@ -43,9 +46,10 @@ public:
     //文本读写
 	void write_text(const std:: string* content)
 	{
-		std::ofstream ofs(filename);//定义一个文件流对象
-		ofs << *content;
+		*ofs << *content;
 	}
+
+	void write_line(std:: string  content){}
 
 };
 
@@ -151,9 +155,9 @@ public:
 
 };
 
-class ToursiteProxy: public IFile{
+class CSVReader: public IFile{
 public:
-	ToursiteProxy(const char* fn ): IFile(fn){}
+	CSVReader(const char* fn ): IFile(fn){}
 
 	std:: string * read_colomn (std:: string * &s){
 		s = read_to_character(',');	
@@ -171,5 +175,18 @@ public:
 
 
 };
+class CSVWriter: public OFile{
+public:
+	CSVWriter(const char* fn ): OFile(fn){}
+
+	void write_colomn (std:: string * s){
+
+	}	
+	void write_colomn (int num){
+
+	}	
+
+};
+
 
 # endif

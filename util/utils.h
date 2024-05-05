@@ -2,9 +2,13 @@
 #define _UTILS_H_
 #include <iostream>
 #include "../DatabaseIF.h"
+#include "List.h"
+
+/*
+    shc2024
+*/
 
 namespace  utils{
-
 
 void static print_int_list (int* list ,int n){
     n = n-1;
