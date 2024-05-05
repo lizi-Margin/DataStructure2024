@@ -15,9 +15,8 @@ class File
 protected:
 	std::string filename; // 配置文件
 public:
-	File(const char* fn )
-		:filename(fn)
-	{
+	File(const char* fn ){	
+		filename = std::string(fn);	
 	}
 	~File(){}
 	
@@ -42,15 +41,24 @@ public:
 	}
 
 	bool is_open(){return ofs->is_open();}
-	void close(){}
+	void close(){
+		ofs->close();
+	}
     //文本读写
-	void write_text(const std:: string* content)
+	void write_text( std:: string* content)
 	{
 		*ofs << *content;
 	}
-
-	void write_line(std:: string  content){}
-
+	void write_text( std:: string content)
+	{
+		*ofs << content;
+	}
+	void write_line(std:: string * content){
+		*ofs << *content<<"\n";
+	}
+	void write_line(std:: string  content){
+		*ofs << content<<"\n";
+	}
 };
 
 class IFile :public File{
@@ -60,6 +68,8 @@ public:
 	IFile(const char* fn )
 		:File(fn)
 	{
+
+    
 		ifs = new std::ifstream(filename);	
 	}
 	~IFile(){
@@ -157,7 +167,8 @@ public:
 
 class CSVReader: public IFile{
 public:
-	CSVReader(const char* fn ): IFile(fn){}
+	CSVReader(const char* fn ): IFile(fn){
+	}
 
 	std:: string * read_colomn (std:: string * &s){
 		s = read_to_character(',');	
@@ -170,7 +181,12 @@ public:
 		return num ;
 	}	
 
-
+	int read_row_num(){
+		int row_num = 0;
+		read_text(2);
+		read_colomn(row_num);
+		return row_num;
+	}
 
 
 
@@ -180,12 +196,24 @@ public:
 	CSVWriter(const char* fn ): OFile(fn){}
 
 	void write_colomn (std:: string * s){
-
+		write_text(s);
+		write_text(",");
 	}	
 	void write_colomn (int num){
-
+		write_text(std::to_string(num));
+		write_text(",");
 	}	
+	void write_last_colomn (std:: string * s){
+		write_line(s);
+	}	
+	void write_last_colomn (int num){
+		write_line(std::to_string(num));
+	}
 
+	void write_row_num(int num){
+		write_text("# ");
+		write_line(std::to_string(num));
+	}
 };
 
 

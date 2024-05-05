@@ -7,9 +7,7 @@
 
 ## Bugs
 * 文件读取字符串过长会失败，暂时不支持更长的景点介绍。
-* 评价功能未加入。
 ---
-<center>DEBUGINGGG...</center>
 
 ## Development Log
 
@@ -23,3 +21,11 @@
 * 新增TableBase用于加载关系型数据库表格
 * 将开发: TableComments & TableDiary 用于加载评价表格和日记表格
 * 正在开发: 将数据保存硬盘
+
+### 2024.5.5 
+* 新增功能: 评价&日记查询
+* 完成开发：TableBase接口
+* 完成开发: TableComments & TableDiary 用于加载评价表格和日记表格
+* 完成开发: TablePlaceComments  用于加载评价表格
+* 完成开发: 所有存盘功能
+* 正在开发: Table*的增删功能, 添加评论、日记

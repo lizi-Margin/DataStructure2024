@@ -50,9 +50,9 @@ int PlaceRM :: get_comments_num(){
   }
 
 
-void PlaceRM::set_info(int index,std::string*name, std::string*introduction, std::string*label,int likes){
+void PlaceRM::set_info(int index,std::string*name, std::string*introduction, std::string*label,int lks){
     place_index = index;
-    likes = likes;
+    likes = lks;
     place_name = name;    
     place_introduction = introduction;
     place_label = label;

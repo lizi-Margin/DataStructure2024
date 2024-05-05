@@ -5,6 +5,7 @@
 #include "util/Comments.h"
 #include "DatabaseIF.h"
 #include "util/File.h"
+#include "util/tables.h"
 # define TOURSITE_CAPACITY 100
 
 /*
@@ -36,7 +37,9 @@ protected:            // 邻接矩阵
   bool loaded;
 
   /* struct */
-  Comments * comments ;
+  TableComments * comments_table ;
+  TablePlaceComments * place_comments_table;
+  TableDiary * diary_table;
   
   int _check_and_load();
 

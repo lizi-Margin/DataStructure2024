@@ -121,7 +121,7 @@ public:
 
 
     void print()override{
-        print_info();
+        // print_info();
         for(int i = 0 ; i < len ;i+=1 ){
             std:: cout << _get(i) << " ";
         }

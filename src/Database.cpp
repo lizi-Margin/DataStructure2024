@@ -161,13 +161,18 @@ int Database ::load_database(std::string relative_address ,int size){
 }
 
 void Database:: load_all(){
-    for (int i= 0 ; i <toursite_amount;i+=1){ 
-      toursite_list[i]->load();
-    }
+  for (int i= 0 ; i <toursite_amount;i+=1){ 
+    toursite_list[i]->load();
+  }
 }
 
 void Database::save_all(){
-    for (int i= 0 ; i <toursite_amount;i+=1){ 
-      toursite_list[i]->save();
-    }
+  for (int i= 0 ; i <toursite_amount;i+=1){ 
+    toursite_list[i]->save();
+  }
+}
+void Database::print_all(){
+  for (int i= 0 ; i <toursite_amount;i+=1){ 
+    toursite_list[i]->print_info();
+  }
 }

@@ -39,6 +39,7 @@ public :
   int load_toursite(int index);
   void  load_all();
   void  save_all();
+  void print_all ();
   
   const  ToursiteRM ** get_toursite_list(); 
   std::string* get_toursite_name(int index) override ;

@@ -49,8 +49,10 @@ ToursiteRM :: ToursiteRM(){
   grade = 0; 
   places = nullptr; 
   adjacent_matrix = nullptr; 
-  comments = nullptr ;
-  
+
+  comments_table  = nullptr;
+  place_comments_table= nullptr;
+  diary_table= nullptr;  
 }
 void ToursiteRM ::set_info(int index , std:: string *name , std:: string *intro,int place_num  ,int likes , std:: string * add) {
   this->toursite_index = index;
@@ -63,12 +65,13 @@ void ToursiteRM ::set_info(int index , std:: string *name , std:: string *intro,
 }
 
 int ToursiteRM::load(){
-  // if (loaded) return 0;
+  if (loaded) return 0;
   // if (address->length()<=2) return 1;
     
-  CSVReader adj_proxy(std::string(*address+std::to_string(toursite_index)+"/adj_matrix.csv").c_str()) ;
-  CSVReader places_proxy(std::string(*address+std::to_string(toursite_index)+"/places.csv").c_str()) ;
+  CSVReader adj_proxy(std::string(*address+std::to_string(toursite_index)+"/adj_matrix.csv").data()) ;    
+  CSVReader places_proxy(std::string(*address+std::to_string(toursite_index)+"/places.csv").data()) ;
 
+    
   int adj_ret = 1 ;
   int places_ret = 1;
 
@@ -82,6 +85,18 @@ int ToursiteRM::load(){
     places_proxy.close();
   }
 
+  comments_table = new  TableComments();
+  place_comments_table = new TablePlaceComments () ;
+  diary_table = new TableDiary (); 
+  comments_table -> init(std::string(*address+std::to_string(toursite_index)+"/comments.csv"));
+  place_comments_table -> init(std::string(*address+std::to_string(toursite_index)+"/place_comments.csv"));
+  diary_table -> init (std::string(*address+std::to_string(toursite_index)+"/diary.csv"));
+
+  
+  int comments_ret = comments_table->load() ;
+  int place_comments_ret = place_comments_table -> load();
+  int diary_ret = diary_table->load() ;
+
   if (!(adj_ret == 0 && places_ret == 0)){return 1 ;}
 
   loaded = true;
@@ -89,8 +104,9 @@ int ToursiteRM::load(){
 }
 
 int ToursiteRM::save(){
-  // if (loaded) return 0;
+  if (!loaded) return 0;
   // if (address->length()<=2) return 1;
+    
     
   CSVWriter adj_proxy(std::string(*address+std::to_string(toursite_index)+"/adj_matrix.csv").c_str()) ;
   CSVWriter places_proxy(std::string(*address+std::to_string(toursite_index)+"/places.csv").c_str()) ;
@@ -108,6 +124,11 @@ int ToursiteRM::save(){
     places_proxy.close();
   }
 
+  int comments_ret = comments_table->save() ;
+  int place_comments_ret = place_comments_table -> save();
+  int diary_ret = diary_table->save() ;
+
+
   if (!(adj_ret == 0 && places_ret == 0)){return 1 ;}
 
   return 0;
@@ -118,27 +139,32 @@ int ToursiteRM:: _check_and_load(){
   return load();
 }
 int ToursiteRM:: _save_places(CSVWriter * proxy){
-		proxy->write_line("#");	
-		for ( int i = 0 ; i < place_num ; i++){
-		  proxy->write_colomn(places[i]->get_index());	
-		  proxy->write_colomn(places[i]->get_name());	
-			proxy->write_colomn(places[i]->get_introduction());	
-			proxy->write_colomn(places[i]->get_label());	
-			proxy->write_colomn(places[i]->get_like_num());	    
-		}
- 
-		return 0;
+  proxy->write_line("index,name,introduction,label,likes #");	
+  for ( int i = 0 ; i < place_num ; i++){
+    proxy->write_colomn(places[i]->get_index());	
+    proxy->write_colomn(places[i]->get_name());	
+    proxy->write_colomn(places[i]->get_introduction());	
+    proxy->write_colomn(places[i]->get_label());	
+    proxy->write_last_colomn(places[i]->get_like_num());	    
+  }
+
+  std::cout << "places saved successfully\n";
+  return 0;
 }
 int ToursiteRM:: _save_adj_matrix(CSVWriter * proxy ){
-		proxy->write_line("#");	
-		int n =place_num;	
-		for(int i = 0; i<n;i+=1){
-			for(int j= 0; j<n ;j+=1){
-				proxy->write_colomn(adjacent_matrix[i][j]);
-			}
-		}
-		return 0;
+  proxy->write_line("#");	
+  int n =place_num;	
+  int n_minus_1 =n - 1;	
+  for(int i = 0; i<n;i+=1){
+    for(int j= 0; j<n_minus_1 ;j+=1){
+      proxy->write_colomn(adjacent_matrix[i][j]);
+    }
+    proxy-> write_last_colomn(adjacent_matrix[i][n_minus_1]);
+  }
+  std::cout << "adjacent matrix saved successfully\n";
+  return 0;
 	}
+
 int ToursiteRM:: _load_places(CSVReader * proxy){
     places = new PlaceRM*[place_num];
 		proxy->read_line();	
@@ -187,22 +213,28 @@ ToursiteRM :: ~ToursiteRM(){
   delete this -> toursite_name ;
   delete this -> places ;
   delete this -> adjacent_matrix;
-  delete comments ;
   delete address ;
   delete introduction ;
-} 
 
-
+  delete comments_table ;
+  delete     place_comments_table;
+  delete      diary_table;
+}
   std :: string* ToursiteRM ::get_name(){ 
     return ( ToursiteRM :: toursite_name); }
   int ToursiteRM ::get_index() { 
     return this->toursite_index;}
   int ToursiteRM ::get_like_num (){
     return this-> like_num;}
+
   int ToursiteRM ::get_comments_num (){
-    return this-> comments-> get_comments_num();}
+    _check_and_load();
+    return comments_table->get_length();
+    }
   std :: string* ToursiteRM ::get_comment(int index){
-    return this-> comments-> get_comment(index);}
+    _check_and_load();
+    return comments_table->get_comment(index);   
+  }
   int ToursiteRM ::get_place_num(){
     return this-> place_num;}
   std::string*  ToursiteRM ::get_introduction ( ){
@@ -255,7 +287,25 @@ int ToursiteRM :: _brute(std::string *t, std::string* p) {
 
   /*setter */
   void ToursiteRM ::add_comment(std:: string* content){
-    this-> comments -> add_comment( new std:: string(* content));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
   void ToursiteRM ::add_like(){this -> like_num += 1;}
 
