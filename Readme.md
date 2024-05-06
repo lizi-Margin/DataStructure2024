@@ -1,5 +1,5 @@
 # DS2024 - shc 
-| 这个版本包含M1的所有文件,基本可用 (评价功能除外)。
+| 这个版本包含M1的所有文件,基本可用。
 
 ## Test.cpp
 <center><img src="./assets/test-0.png" alt="png" >
@@ -24,6 +24,7 @@
 
 ### 2024.5.5 
 * 新增功能: 评价&日记查询
+* 扩展接口: Database_IF
 * 完成开发：TableBase接口
 * 完成开发: TableComments & TableDiary 用于加载评价表格和日记表格
 * 完成开发: TablePlaceComments  用于加载评价表格

@@ -1,8 +1,8 @@
 #include <iostream>
 #include "DatabaseIF.h"
-#include "Database.h"
-#include "util/utils.h"
-#include "util/List.h"
+#include "shc/Database.h"
+#include "shc/util/utils.h"
+#include "shc/util/List.h"
 
 
 /*
@@ -13,7 +13,7 @@ This is a test programme.
 
 
 
-int   use_interface(Database * a ){
+int   use_interface(Database_IF * a ){
     
   // a.load_database(std :: string relative_address) = 0; /* 从指定路径导入, 返回值判断是否成功 */
   std:: cout << "景点数： " << a->get_toursite_amount() ;/* 景点数 */
@@ -45,7 +45,6 @@ int   use_interface(Database * a ){
 
   //a->release_database() ;/* 释放内存 */
 
-
   return 0;
 }
 
@@ -68,7 +67,7 @@ void use_string_list(List<std::string> * list ){
 
 
 
-std:: string abs_path =  std::string("C:/Users/33149/Desktop/DS2024/pack/Database/");
+std:: string abs_path =  std::string("C:/Users/33149/Desktop/DS2024/pack/shc/Database/");
 const int chunk_size = 5;
 
 int test(){
@@ -95,5 +94,6 @@ int test(){
 
 int main (){
   test();    
+  return 0 ;
 }
 
