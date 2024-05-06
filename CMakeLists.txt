@@ -16,10 +16,10 @@ message("PROJECT_BINARY_DIR : " ${PROJECT_BINARY_DIR})
 #include_directories(${WORKSPACE_PATH})
 #include_directories(${WORKSPACE_PATH}/util)
 
-aux_source_directory(./src SOURCE_FILES)
-aux_source_directory(./util/src SOURCE_FILES1)
+aux_source_directory(./shc/src SOURCE_FILES)
+aux_source_directory(./shc/util/src SOURCE_FILES_UTIL)
 #set(SOURCE_FILES test.cpp util/List.cpp util/Comments.cpp Database.cpp Toursite.cpp Place.cpp  )
-add_executable(pack test.cpp ${SOURCE_FILES} ${SOURCE_FILES1})
+add_executable(pack test.cpp ${SOURCE_FILES} ${SOURCE_FILES_UTIL})
 
 # set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 # set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\subpack.dir/objects.a
-C:\Users\33149\scoop\apps\mingw-winlibs-llvm\current\bin\llvm-ar.exe qc CMakeFiles\subpack.dir/objects.a @CMakeFiles\subpack.dir\objects1.rsp
-C:\Users\33149\scoop\apps\mingw-winlibs-llvm\current\bin\clang++.exe -g -Wl,--whole-archive CMakeFiles\subpack.dir/objects.a -Wl,--no-whole-archive -o subpack.exe -Wl,--out-implib,libsubpack.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\subpack.dir\linkLibs.rsp
