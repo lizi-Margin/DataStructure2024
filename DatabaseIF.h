@@ -24,6 +24,12 @@ struct ToursiteTopo
   int  place_num;       // 顶点数 
   Place **  places;        // 顶点表
   int** adjacent_matrix;   
+
+  int** adjacent_matrix_walk;   
+  int** adjacent_matrix_bicicle;   
+  int** adjacent_matrix_ebycicle;   
+
+  int** adjacent_matrix_congestion;   
 };
 
 class  Database_IF{
