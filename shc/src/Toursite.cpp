@@ -68,8 +68,8 @@ int ToursiteRM::load(){
   if (loaded) return 0;
   // if (address->length()<=2) return 1;
     
-  CSVReader adj_proxy(std::string(*address+std::to_string(toursite_index)+"/adj_matrix.csv").data()) ;    
-  CSVReader places_proxy(std::string(*address+std::to_string(toursite_index)+"/places.csv").data()) ;
+  CSVReader adj_proxy(std::string(*address+std::to_string(toursite_index)+"/adj_matrix.csv").data()) ;
+
 
     
   int adj_ret = 1 ;
@@ -78,11 +78,6 @@ int ToursiteRM::load(){
   if (adj_proxy.is_open()){
     adj_ret = _load_adj_matrix(&adj_proxy );    
     adj_proxy.close();
-  } 
-  
-  if (places_proxy.is_open()){
-    places_ret = _load_places(&places_proxy );
-    places_proxy.close();
   }
 
   comments_table = new  TableComments();
@@ -97,7 +92,16 @@ int ToursiteRM::load(){
   int place_comments_ret = place_comments_table -> load();
   int diary_ret = diary_table->load() ;
 
-  if (!(adj_ret == 0 && places_ret == 0&& comments_ret==0 && place_comments_ret==0 && diary_ret ==0)){return 1 ;}
+
+    CSVReader places_proxy(std::string(*address+std::to_string(toursite_index)+"/places.csv").data()) ;
+    if (places_proxy.is_open()){
+        places_ret = _load_places(&places_proxy );
+        places_proxy.close();
+    }
+
+
+
+    if (!(adj_ret == 0 && places_ret == 0&& comments_ret==0 && place_comments_ret==0 && diary_ret ==0)){return 1 ;}
 
   loaded = true;
   return 0;
@@ -182,7 +186,7 @@ int ToursiteRM:: _load_places(CSVReader * proxy){
 			proxy->read_colomn(likes);	
 			places[i] = new  PlaceRM();		
       
-      places[i]->set_info  (index,name,introduction,label,likes);
+      places[i]->set_info  (index,name,introduction,label,likes,place_comments_table);
 		}
  
     //////////////////////////debug

@@ -9,22 +9,22 @@ PlaceRM :: PlaceRM(){
     place_introduction = nullptr;
     place_label = nullptr;
 
-    comments = nullptr;    
+    place_comment_table = nullptr;
 }
 
 PlaceRM :: PlaceRM(PlaceRM * place){
-    copy(place);    
-}
-
-void PlaceRM :: copy(PlaceRM * place){
     place_index = place->get_index();
     likes = place->get_like_num();
-    place_name = place->get_name();    
+    place_name = place->get_name();
     place_introduction = place->get_introduction();
     place_label = place->get_label();
 
-    comments = nullptr;    
+    // warining 警告， 可能被其他模块删除
+    place_comment_table = place->place_comment_table;
+
 }
+
+
 
 
 
@@ -45,17 +45,18 @@ int PlaceRM :: get_like_num(){
     return this -> likes ;
   }
 int PlaceRM :: get_comments_num(){
-    return this-> comments -> get_comments_num();
+    return this-> place_comment_table ->get_place_comment_num(place_index);
   }
 
 
-void PlaceRM::set_info(int index,std::string*name, std::string*introduction, std::string*label,int lks){
+void PlaceRM::set_info(int index,std::string*name, std::string*introduction, std::string*label,int lks,TablePlaceComments * table){
     place_index = index;
     likes = lks;
     place_name = name;    
     place_introduction = introduction;
     place_label = label;
 
+    place_comment_table = table;
 }
 
 

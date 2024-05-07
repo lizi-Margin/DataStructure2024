@@ -21,6 +21,8 @@ void static print_places(Place** places,int n){
     for(int i = 0 ; i < n ; i+=1){
     std::cout<<"place_index: "<<places[i]->get_index();
     std::cout<<"   place_name: "<<*places[i]->get_name();
+    std::cout<<"   place_like_num: "<<places[i]->get_like_num();
+    std::cout<<"   place_comment_num: "<<places[i]->get_comments_num();
     std::cout<<"   place_introduction: "<<*places[i]->get_introduction()<<std::endl;
     }
 }

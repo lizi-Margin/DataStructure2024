@@ -6,6 +6,7 @@
 #include "File.h"
 #include "List.h"
 
+/* shc2024 */
 
 class TableBase {
 protected:
@@ -109,6 +110,45 @@ public:
         column_names = new ChunkList<std::string>(5);
         column_type = new ChunkList<int>(5); 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Warning !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+    // Place.h:22
+    explicit TableBase(TableBase* table){};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     ~TableBase(){
         delete address;
         delete  columns ;

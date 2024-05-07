@@ -2,6 +2,7 @@
 #define _PLACE_H_
 #include <string>
 #include "util/Comments.h"
+#include "util/Tables.h"
 #include "../DatabaseIF.h"
 
 /*
@@ -20,13 +21,14 @@ protected :
   std::string * place_label;
 
   /* struct */
-  Comments * comments;
+  //Comments * comments;
+  TablePlaceComments * place_comment_table;
+
   
 public:
   PlaceRM();
-  PlaceRM(PlaceRM * );
-  void copy(PlaceRM*place);
-  void set_info(int index,std::string*name, std::string*introduction, std::string*label,int likes);
+  explicit PlaceRM(PlaceRM * );
+  void set_info(int index,std::string*name, std::string*introduction, std::string*label,int likes,TablePlaceComments * table);
  
   int get_index() override;
   std::string* get_name() override;

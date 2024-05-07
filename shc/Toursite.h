@@ -1,11 +1,11 @@
-#ifndef _TOURSITE_H_
-#define _TOURSITE_H_
+#ifndef TOURSITE__
+#define TOURSITE_H
 #include <string>
 #include "Place.h"
 #include "util/Comments.h"
 #include "../DatabaseIF.h"
 #include "util/File.h"
-#include "util/tables.h"
+#include "util/Tables.h"
 # define TOURSITE_CAPACITY 100
 
 /*
