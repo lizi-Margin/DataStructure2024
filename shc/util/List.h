@@ -1,5 +1,5 @@
-# ifndef _LIST_H_
-# define _LIST_H_
+# ifndef LIST_H
+# define LIST_H
 # define DEFAULT_CHUNKNODE_CAPACITY 5
 # include <iostream>
 
@@ -21,14 +21,14 @@ public:
     t * main_list ;
     ChunkListNode * next ;
 
-    ChunkListNode ( ){// forbiden
-        main_list = new  t[DEFAULT_CHUNKNODE_CAPACITY];
-        next = nullptr ;
-    }
-    ChunkListNode ( int cap){
-        main_list = new  t[cap];
-        next = nullptr ;
-    }
+//    ChunkListNode ( ){// forbidden
+//        main_list = new  t[DEFAULT_CHUNKNODE_CAPACITY];
+//        next = nullptr ;
+//    }
+//    ChunkListNode ( int cap){
+//        main_list = new  t[cap];
+//        next = nullptr ;
+//    }
     ChunkListNode (int cap ,ChunkListNode<t>* n ){
         main_list = new  t[cap];
         next = n ;
@@ -54,7 +54,7 @@ protected:
     ChunkListNode<type> * first;
  
     type _get(int index){
-        if ( index >= len || index <0 ) { return 0;}
+        if ( index >= len || index <0 ) { return type() ;}
         int reminder = index % node_capacity;
         int node_index =  (index) / node_capacity;
         int rev_node_index = node_used -  node_index -1 ;
@@ -68,25 +68,24 @@ protected:
 
 public:
     ChunkList(){
-        node_capacity = DEFAULT_CHUNKNODE_CAPACITY ;
-        this -> len = 0;
-        this -> node_used = 0;
-        this -> first = nullptr;
+        node_capacity = DEFAULT_CHUNKNODE_CAPACITY;
+        len = 0;
+        node_used = 0;
+        first = nullptr;
     }
 
-    ChunkList(int node_cap){
+    explicit  ChunkList(int node_cap){
         if (node_cap <1){
             node_capacity = DEFAULT_CHUNKNODE_CAPACITY;
         }else{
             node_capacity =  node_cap;
         }
-        this -> len = 0;
-        this -> node_used = 0;
-        this -> first = nullptr;
+        len = 0;
+        node_used = 0;
+        first = nullptr;
     }
 
 
-    
     ~ChunkList(){
         delete[] first;
         first = nullptr;
@@ -97,7 +96,7 @@ public:
         len +=1;
         if ((len) - node_used* node_capacity> 0 ){
             node_used +=1;
-            ChunkListNode<type> *  new_node = new ChunkListNode<type>(node_capacity,first); 
+            auto *  new_node = new ChunkListNode<type>(node_capacity,first);
             first = new_node;
 
             new_node-> main_list[0] = content;
@@ -134,5 +133,16 @@ public:
     }
 };
 
+/* Map: string-int key-value map. */
+class StringChunkList:public ChunkList<std::string>{
+private:
+    /* data */
+public:
+    
+    explicit StringChunkList(int node_cap ):ChunkList(node_cap){}
+
+    int get_index(std::string s);
+    int search_index(std::string s);
+};
 
 #endif 

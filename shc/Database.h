@@ -1,5 +1,5 @@
-#ifndef _DATABASE_H_
-#define _DATABASE_H_
+#ifndef DATABASE_H
+#define DATABASE_H
 #include<string>
 #include "Toursite.h" 
 #include "../DatabaseIF.h"
@@ -31,20 +31,22 @@ protected:
   int * _get_top_toursites_index_in_grade_ladder(int n); 
   void _sync_grade_ladder(); 
 
+  bool _index_in_range(int index);
+
 public :
   Database();
   
   int load_database(std :: string relative_address)override; /* 从指定路径导入, 返回值判断是否成功 */
   int load_database(std :: string relative_address,int size);
   int load_toursite(int index);
-  void  load_all();
-  void  save_all();
+  int  load_all();
+  int  save_all()override;
   void print_all ();
   
   const  ToursiteRM ** get_toursite_list(); 
   std::string* get_toursite_name(int index) override ;
 
-  int get_toursite_amount(void)override; 
+  int get_toursite_amount()override;
 
   int * get_toursites_index_by_search(std::string str, int n) override;
   int * get_recommended_toursites_index(int n)override; 
@@ -59,9 +61,9 @@ public :
   int get_toursite_place_num(int index ) override;  
 
 
-    int get_toursite_comment_num(int index)  override;  
-    std::string* get_toursite_comment(int index,int comment_index)  override; 
-    int get_toursite_comment_like_num(int index,int comment_index)  override;
+  int get_toursite_comment_num(int index)  override;
+  std::string* get_toursite_comment(int index,int comment_index)  override;
+  int get_toursite_comment_like_num(int index,int comment_index)  override;
 
     int get_toursite_diary_num(int index)  override;  
     std::string* get_toursite_diary(int index,int comment_index)  override; 
@@ -74,7 +76,7 @@ public :
 
 
 
-  int release_database(void)override; /* 释放内存 */
+  int release_database()override; /* 释放内存 */
   ~Database();
 };
 #endif

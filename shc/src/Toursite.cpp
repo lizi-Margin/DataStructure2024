@@ -97,7 +97,7 @@ int ToursiteRM::load(){
   int place_comments_ret = place_comments_table -> load();
   int diary_ret = diary_table->load() ;
 
-  if (!(adj_ret == 0 && places_ret == 0)){return 1 ;}
+  if (!(adj_ret == 0 && places_ret == 0&& comments_ret==0 && place_comments_ret==0 && diary_ret ==0)){return 1 ;}
 
   loaded = true;
   return 0;
@@ -129,7 +129,7 @@ int ToursiteRM::save(){
   int diary_ret = diary_table->save() ;
 
 
-  if (!(adj_ret == 0 && places_ret == 0)){return 1 ;}
+  if (!(adj_ret == 0 && places_ret == 0&& comments_ret==0 && place_comments_ret==0 && diary_ret ==0)){return 1 ;}
 
   return 0;
 }
@@ -148,7 +148,7 @@ int ToursiteRM:: _save_places(CSVWriter * proxy){
     proxy->write_last_colomn(places[i]->get_like_num());	    
   }
 
-  std::cout << "places saved successfully\n";
+//  std::cout << "places saved successfully\n";
   return 0;
 }
 int ToursiteRM:: _save_adj_matrix(CSVWriter * proxy ){
@@ -161,7 +161,7 @@ int ToursiteRM:: _save_adj_matrix(CSVWriter * proxy ){
     }
     proxy-> write_last_colomn(adjacent_matrix[i][n_minus_1]);
   }
-  std::cout << "adjacent matrix saved successfully\n";
+//  std::cout << "adjacent matrix saved successfully\n";
   return 0;
 	}
 
@@ -227,7 +227,7 @@ ToursiteRM :: ~ToursiteRM(){
   int ToursiteRM ::get_like_num (){
     return this-> like_num;}
 
-  int ToursiteRM ::get_comments_num (){
+  int ToursiteRM ::get_comment_num (){
     _check_and_load();
     return comments_table->get_length();
     }
@@ -235,8 +235,58 @@ ToursiteRM :: ~ToursiteRM(){
     _check_and_load();
     return comments_table->get_comment(index);   
   }
-  int ToursiteRM ::get_place_num(){
-    return this-> place_num;}
+
+int ToursiteRM ::get_comment_like_num (int index){
+    _check_and_load();
+    return comments_table->get_comment_like_num(index);
+}
+int ToursiteRM:: get_diary_num(){
+    _check_and_load();
+    return diary_table->get_length();
+}
+
+std::string* ToursiteRM:: get_diary(int index){
+    _check_and_load();
+    return  diary_table->get_diary(index);
+}
+
+int ToursiteRM::get_diary_like_num(int index){
+    _check_and_load();
+    return  diary_table->get_diary_like_num(index);
+}
+
+int ToursiteRM:: get_place_comment_num(int index){
+    if(_place_index_in_range(index)){
+        _check_and_load();
+        return place_comments_table->get_place_comment_num(index);
+    }
+    return 0;
+}
+
+std :: string*  ToursiteRM::get_place_comment(int index,int comment_index){
+
+    if(_place_index_in_range(index)){
+        _check_and_load();
+        return place_comments_table->get_place_comment(index,comment_index);
+    }
+    return nullptr;
+}
+bool ToursiteRM:: _place_index_in_range(int index) const{
+    if (index < place_num && index>=0)return true;
+    return false;
+}
+
+int ToursiteRM::get_place_comment_like_num(int index,int comment_index){
+    if(_place_index_in_range(index)){
+        _check_and_load();
+        return place_comments_table->get_place_comment_like_num(index,comment_index);
+    }
+    return 0;
+}
+
+int ToursiteRM ::get_place_num() const{
+    return this-> place_num;
+}
   std::string*  ToursiteRM ::get_introduction ( ){
     return  (  this->introduction); };
   int ToursiteRM ::get_grade(){

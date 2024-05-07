@@ -13,9 +13,15 @@
   shc 2024
 */
 
-class Toursite
-{
-protected :
+// class Toursite
+// {
+// protected :
+// };
+
+class ToursiteRM  {
+protected:            // 邻接矩阵
+
+
   /* info */
   int toursite_index ;
   std :: string * toursite_name ;
@@ -25,10 +31,9 @@ protected :
   PlaceRM **  places;        // 顶点表
   int** adjacent_matrix;                            
 
-};
 
-class ToursiteRM  : public Toursite{
-protected:            // 邻接矩阵
+
+
   /* info */
   int like_num;     
   int grade;
@@ -57,6 +62,8 @@ protected:            // 邻接矩阵
   void _print_matrix();
 
   int _brute(std::string*t, std::string*p);
+
+  bool  _place_index_in_range(int index) const;
 public:
 
   ToursiteRM();
@@ -80,12 +87,19 @@ public:
   std :: string* get_name();
   int get_index();
   int get_like_num ();
-  int get_comments_num ();
+  int get_comment_num ();
   std :: string* get_comment(int index);
+  int get_comment_like_num (int index);
+  int get_diary_num();
+  std::string* get_diary(int index);
+  int get_diary_like_num(int index);
+  int get_place_comment_num(int index);
+  std :: string* get_place_comment(int index,int comment_index);
+  int get_place_comment_like_num(int index,int comment_index);
   std::string*  get_introduction ();
   int get_grade() ;
 
-  int get_place_num(); 
+  int get_place_num() const;
   /* setter*/
 
   void set_info(int index , std:: string *name , std:: string *intro,int place_num  ,int like_num , std:: string * add); 

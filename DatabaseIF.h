@@ -1,5 +1,5 @@
-# ifndef _DATABASEIF_H_
-# define _DATABASEIF_H_
+# ifndef DATABASEIF_H
+# define DATABASEIF_H
 # include <string>
 /* 
   Interface for M1 database.
@@ -25,21 +25,26 @@ struct ToursiteTopo
   Place **  places;        // 顶点表
   int** adjacent_matrix;   
 
-  int** adjacent_matrix_walk;   
-  int** adjacent_matrix_bicicle;   
-  int** adjacent_matrix_ebycicle;   
-
-  int** adjacent_matrix_congestion;   
+  /* 暂不支持的部分 */
+  /* 移动方式可行邻接图 (0/1标识不可行/可行) */
+  int** adjacent_matrix_walk;
+  int** adjacent_matrix_bike;
+  int** adjacent_matrix_elebike;
+  /* 路径拥塞程度图 (>=0) */
+  int** adjacent_matrix_congestion;
 };
 
 class  Database_IF{
 public:
+    /* Database interface 已通过测试的接口 */
     /* 释放数据库内存 */
-    virtual int release_database(void) = 0; 
+    virtual int release_database() = 0;
+    /* 保存一切数据 */
+    virtual int save_all() = 0;
     /* 从指定路径导入, 返回值判断是否成功 */
     virtual int load_database(std :: string relative_address) = 0; 
     /* 查询景点数 */
-    virtual int get_toursite_amount(void)  = 0;
+    virtual int get_toursite_amount()  = 0;
     /* 查询景点推荐度*/
     virtual int get_toursite_grade(int index)  = 0; 
     /* 查询景点名称 */ 
@@ -74,7 +79,10 @@ public:
     /* 查询场所评价 */ 
     virtual std::string* get_place_comment(int index,int place_index,int comment_index)  = 0; 
     /* 查询场所评价点赞数 */ 
-    virtual int get_place_comment_like_num(int index,int place_index,int comment_index)  = 0; 
+    virtual int get_place_comment_like_num(int index,int place_index,int comment_index)  = 0;
+
+    /* 未通过测试的接口 */
+    /* 无() */
 };
 
 #endif

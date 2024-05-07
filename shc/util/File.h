@@ -1,5 +1,5 @@
-# ifndef _FILE_H_
-# define _FILE_H_
+# ifndef FILE_H
+# define FILE_H
 # include<fstream>
 # include<sstream>
 # include<string>
@@ -15,22 +15,21 @@ class File
 protected:
 	std::string filename; // 配置文件
 public:
-	File(const char* fn ){	
+	explicit File(const char* fn ){
 		filename = std::string(fn);	
 	}
-	~File(){}
+	~File()=default;
 	
 	std::string get_filename(){
 		return filename;
 	}
-	bool is_open(){return 0;}
 
 };
 class OFile :public File{
 protected:
 	std::ofstream *ofs;//定义一个文件流对象
 public:
-	OFile(const char* fn )
+	explicit OFile(const char* fn )
 		:File(fn)
 	{
 		ofs = new std::ofstream(filename);	
@@ -65,7 +64,7 @@ class IFile :public File{
 protected:
 	std::ifstream *ifs;//定义一个文件流对象
 public:
-	IFile(const char* fn )
+	explicit IFile(const char* fn )
 		:File(fn)
 	{
 
@@ -82,7 +81,6 @@ public:
 
 	void close(){
 		ifs->close();
-		return;
 	}
 
 	// // 二进制读写 -- 简单高效，缺点：写到文件中的内容看不懂
@@ -101,14 +99,14 @@ public:
 
 
 
-	std::string * read_text(int count)
+	std::string  read_text(int count)
 	{		
         char s[count+1];
         for (int i= 0 ; i< count && !ifs->eof(); i+=1){
 		    ifs->get(s[i]) ;
         }
 		
-        return new std::string(s);
+        return  std::string(s);
 	}
 
     std::string * read_to_character( const char character   )
@@ -117,7 +115,7 @@ public:
 		bool init_flag =1;
         char  buff [buff_size+1];
 	    for (int i= 0 ; i<= buff_size ; i+=1) buff [i] = '\0';
-		std:: string * s = new std::string();
+		auto * s = new std::string();
 		char ch;
 		ifs->get(ch) ;
 		// while (init_flag && (ch == character || ch =='\n'))
@@ -145,29 +143,29 @@ public:
 		return read_to_character('\n');
 	
 	}
-    std::string * read_all()
+    std::string  read_all()
     {
 		const int chunk_size = 20;
-		std::string* s;
-		std::string* res= new std::string();
+		std::string s;
+		std::string res;
 		do{	
 			s = read_text(chunk_size);
-			res ->append(*s);
-		}while(s->length() == chunk_size);
+			res .append(s);
+		}while(s.length() == chunk_size);
 		return res;
     }       
     
 
     void read_all_to_cout()
     {
-        std::cout<<*read_all()<<std::endl;
+        std::cout<<read_all()<<std::endl;
     }
 
 };
 
 class CSVReader: public IFile{
 public:
-	CSVReader(const char* fn ): IFile(fn){
+	explicit CSVReader(const char* fn ): IFile(fn){
 	}
 
 	std:: string * read_colomn (std:: string * &s){
@@ -193,7 +191,7 @@ public:
 };
 class CSVWriter: public OFile{
 public:
-	CSVWriter(const char* fn ): OFile(fn){}
+	explicit  CSVWriter(const char* fn ): OFile(fn){}
 
 	void write_colomn (std:: string * s){
 		write_text(s);

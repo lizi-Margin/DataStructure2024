@@ -126,14 +126,15 @@ ToursiteTopo * Database::  get_toursite_topo(int index) {
     return ( toursite_list[index])->get_topo();
   }
   
-int Database :: release_database(void){
-  delete[] grade_ladder;
-  delete[] toursite_list;
-  return 0 ;
+int Database :: release_database(){
+    //save_all();
+    delete[] grade_ladder;
+    delete[] toursite_list;
+    return 0 ;
 } /* 释放内存 */
-
 Database::~Database(){
-  release_database();
+    delete[] grade_ladder;
+    delete[] toursite_list;
 }
 
 
@@ -160,17 +161,32 @@ int Database ::load_database(std::string relative_address ,int size){
   return 1;
 }
 
-void Database:: load_all(){
-  for (int i= 0 ; i <toursite_amount;i+=1){ 
-    toursite_list[i]->load();
+int Database:: load_all(){
+    int ret_code = 0;
+  int i;
+  for (i= 0 ; i <toursite_amount;i+=1) {
+      if (toursite_list[i]->load() != 0) {
+          ret_code = 1;
+          std::cout << "Toursite load ERROR, index=" << i << '\n';
+      }
   }
+  std::cout<<"Toursite load success, all="<<i<<'\n';
+    return  ret_code;
 }
 
-void Database::save_all(){
-  for (int i= 0 ; i <toursite_amount;i+=1){ 
-    toursite_list[i]->save();
-  }
+int Database::save_all(){
+    int ret_code = 0;
+    int i ;
+    for ( i= 0 ; i <toursite_amount;i+=1){
+       if (toursite_list[i]->save()!= 0 ) {
+           ret_code= 1;
+           std::cout<<"Toursite save ERROR, index="<<i<<'\n';
+       }
+    }
+    std::cout<<"Toursite save success, all="<<i<<'\n';
+    return  ret_code;
 }
+
 void Database::print_all(){
   for (int i= 0 ; i <toursite_amount;i+=1){ 
     toursite_list[i]->print_info();
@@ -181,53 +197,68 @@ void Database::print_all(){
 
 
 int Database:: get_toursite_place_num(int index)  {
+  if (index <0 || index >= toursite_amount)return 0 ;
+  return toursite_list[index] ->get_place_num() ;
+}
 
-
-  return 0 ;
-}  
+bool Database:: _index_in_range(int index){
+    if (index<toursite_amount && index >=0) return true;
+    return false;
+}
 int Database:: get_toursite_comment_num(int index)  {
-
-
-  return 0 ;
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_comment_num();
+    }
+    return 0 ;
 }  
 std::string*  Database:: get_toursite_comment(int index,int comment_index)  {
-
-  return nullptr;
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_comment(comment_index);
+    }
+    return nullptr;
 } 
 int  Database:: get_toursite_comment_like_num(int index,int comment_index) {
-
-  return 0;
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_comment_like_num(comment_index);
+    }
+    return 0;
 }
 
 int  Database:: get_toursite_diary_num(int index)  {
-
-
-  return 0 ;
-} 
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_diary_num();
+    }
+    return 0;
+}
 std::string*  Database:: get_toursite_diary(int index,int comment_index)  {
-
-
-  return nullptr;
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_diary(comment_index);
+    }
+    return nullptr;
 } 
 int  Database:: get_toursite_diary_like_num(int index,int comment_index)  {
-
-
-  return 0;
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_diary_like_num(comment_index);
+    }
+    return 0;
 }
 
 int  Database:: get_place_comment_num(int index , int place_index)  {
-
-
-  return 0 ;
-}  
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_place_comment_num(place_index);
+    }
+    return 0;
+}
 std::string*  Database:: get_place_comment(int index,int place_index,int comment_index)  {
-
-  return nullptr;
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_place_comment(place_index,comment_index);
+    }
+    return nullptr;
 }
 int  Database:: get_place_comment_like_num(int index,int place_index,int comment_index)  {
-
-
-
-  return 0 ;
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_place_comment_like_num(place_index,comment_index);
+    }
+    return 0;
 }
 

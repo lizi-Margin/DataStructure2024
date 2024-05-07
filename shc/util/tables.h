@@ -1,7 +1,8 @@
-#ifndef _TABLE_BASE_H_
-#define _TABLE_BASE_H_
+#ifndef TABLE_BASE_H
+#define TABLE_BASE_H
 #include <string>
 #include <iostream>
+#include <utility>
 #include "File.h"
 #include "List.h"
 
@@ -28,14 +29,14 @@ protected:
                     std::string* data;
         
                     csv_reader->read_colomn(data);
-                    ChunkList<std::string>* col = (ChunkList<std::string>* )((columns) ->get(j));
+                    auto col = (ChunkList<std::string>* )((columns) ->get(j));
         
                     col->append(*data);
                 }else{
         
                     int data;
                     csv_reader->read_colomn(data);
-                    ChunkList<int>* col = (ChunkList<int>* )((columns) ->get(j));
+                    auto col = (ChunkList<int>* )((columns) ->get(j));
         
                     col->append(data);
                 }
@@ -55,9 +56,9 @@ protected:
             csv_writer ->write_colomn(s);
             delete s;
         }
-        std::string*s = _get_column_name(col_num_minus_1);
-        csv_writer ->write_last_colomn(s);
-        delete s;	
+        std::string* str = _get_column_name(col_num_minus_1);
+        csv_writer ->write_last_colomn(str);
+        delete str;
 
 		for ( int i = 0 ; i < length ; i++){
             for(int j =0 ; j < col_num_minus_1; j+=1){
@@ -85,16 +86,16 @@ protected:
     }
 
     std::string * _get_string(int row,int col){
-        ChunkList<std::string>* c = (ChunkList<std::string>* )((columns) ->get(col));
-        std::string * s =  new std::string(c -> get(row));
+        auto c = (ChunkList<std::string>* )((columns) ->get(col));
+        auto * s =  new std::string(c -> get(row));
         return s; 
     }
     int  _get_int(int row,int col){
-        ChunkList<int>* c = (ChunkList<int>* )((columns) ->get(col));
+        auto c = (ChunkList<int>* )((columns) ->get(col));
         return (c -> get(row)); 
     }
     std::string * _get_column_name(int col){
-        std::string * s =  new std::string(column_names -> get(col));
+        auto * s =  new std::string(column_names -> get(col));
         return s; 
     }
     int _get_length(){
@@ -115,7 +116,7 @@ public:
         delete column_type ; 
     }
     int init (std:: string addr){
-        address  = new std:: string( addr);
+        address  = new std:: string( std::move(addr));
         return 0;
     }
     int add_int_column(const char * col_name){
@@ -134,7 +135,7 @@ public:
 
     int load(){
 
-        CSVReader * csv_reader = new CSVReader(address->data());        
+        auto csv_reader = new CSVReader(address->data());
         if ( csv_reader == nullptr || !csv_reader->is_open()){return 1 ;}
  
         
@@ -147,7 +148,7 @@ public:
         return 0 ;
     }
     int save(){
-        CSVWriter * csv_writer = new CSVWriter(address->data());        
+        auto csv_writer = new CSVWriter(address->data());
         if ( csv_writer == nullptr || !csv_writer->is_open()){return 1 ;}
         
         csv_writer->write_row_num(((ChunkList<int>*)(columns->get(0)))->length());
@@ -164,14 +165,10 @@ public:
     void add_rows(TableBase* table){
 
 
-
-
-
-
-
+    }
+    void add_row(){
 
     }
-    void add_row();
 
 
 
@@ -214,6 +211,22 @@ public:
 };
 
 class TablePlaceComments:public TableBase{
+protected:
+    int _get_place_comment_index(int index,int comment_index){
+        int col_num_minus_1 = columns->length() -1 ;
+        int length = _get_length();
+        if (col_num_minus_1 < 0 || index >=length) {return -1;}
+        int count = 0;
+        for ( int i = 0 ; i < length ; i++){
+            if (index == _get_int(i, 1)){
+                if (count == comment_index){
+                    return  i;
+                }
+                count +=1;
+            }
+        }
+        return -1 ;
+    }
 public:
     TablePlaceComments():TableBase(){
         add_int_column("index");
@@ -221,12 +234,25 @@ public:
         add_string_column("content");
         add_int_column("likes");
     }
-    std::string * get_comment(int index){
-        return _get_string(index,2);
+    std::string * get_place_comment(int index,int comment_index){
+       return _get_string(_get_place_comment_index(index,comment_index),2);
     }
-    int get_comment_like_num(int index){
-        return _get_int(index,3);
-    } 
+    int get_place_comment_like_num(int index,int comment_index){
+        return _get_int(_get_place_comment_index(index,comment_index),3);
+    }
+
+    int get_place_comment_num(int index){
+        int col_num_minus_1 = columns->length() -1 ;
+        if (col_num_minus_1 < 0 ) {return 0;}
+        int length = _get_length();
+        int count = 0;
+        for ( int i = 0 ; i < length ; i++){
+             if (index == _get_int(i, 1)){
+                 count +=1;
+             }
+        }
+        return count;
+    }
 
 };
 class TableDiary:public TableBase{
