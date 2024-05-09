@@ -22,12 +22,12 @@ int Database:: _init_toursite_list (CSVReader * proxy, int len,std::string*relat
 			int likes;
 			std:: string * address ;
 			proxy->read_colomn(index);	
-		  proxy->	read_colomn(name);	
+		    proxy->	read_colomn(name);
 			proxy->read_colomn(introduction);	
 			proxy->read_colomn(place_num);	
 			proxy->read_colomn(likes);	
-      address = relative_address;
-			toursite_list[i] = new  ToursiteRM();		
+            address = relative_address;
+			toursite_list[i] = new  ToursiteRM();
       
       toursite_list[i]->set_info  (index,name,introduction,place_num,likes,address);
 		}
@@ -76,6 +76,23 @@ int Database::load_toursite(int index){
   if (toursite_list[index]->get_place_num() <=0)return 1; 
   return toursite_list[index]->load();
 }
+
+int Database::save_toursite(int index){
+    if (toursite_amount <=0 || index <0 ) return 1;
+    if (toursite_list[index]->get_place_num() <=0)return 1;
+    return toursite_list[index]->save();
+}
+
+int Database::export_toursite(int index,int from,int to_not_included){
+    int ret = 0;
+    int this_ret;
+    for(int i = from;i<to_not_included;i+=1){
+        this_ret=toursite_list[index]->save(i);
+        if (this_ret!=0)ret =this_ret ;
+    }
+    return  ret;
+}
+
 
 std::string* Database ::  get_toursite_name(int index) {
     return new std::string (*(this->get_toursite(index)->get_name()));
@@ -140,21 +157,35 @@ Database::~Database(){
 
 
 int Database:: load_database(std :: string relative_address){
-  return load_database(relative_address,30);
+    auto address = new std::string(relative_address);
+
+    CSVReader proxy((*address +"toursite_table.csv" ).data()) ;
+    if (proxy.is_open()){
+        int size = proxy.read_row_num();
+        std::cout<<"Automatically load database, detected toursite table size: "<<size<<"\n";
+        _init_toursite_list( &proxy, size,address);
+        toursite_amount = size;
+        for (int i= 0 ; i <toursite_amount;i+=1){
+            grade_ladder[i]=toursite_list[i]->get_index();
+        }
+        proxy.close();
+        return 0;
+    }
+    return 1;
 } /* 从指定路径导入, 返回值判断是否成功 */
 
 int Database ::load_database(std::string relative_address ,int size){
-  std:: string * address = new std::string(relative_address);
+  auto address = new std::string(relative_address);
 
   CSVReader proxy((*address +"toursite_table.csv" ).data()) ;
   if (proxy.is_open()){
+      proxy.read_line();
+      std::cout<<"Manually load database, toursite table size: "<<size<<"\n";
     _init_toursite_list( &proxy, size,address);
-      
     toursite_amount = size;
     for (int i= 0 ; i <toursite_amount;i+=1){      
       grade_ladder[i]=toursite_list[i]->get_index();      
     }
-
     proxy.close();
     return 0;
   }

@@ -20,7 +20,8 @@ aux_source_directory(./shc/src SOURCE_FILES)
 aux_source_directory(./shc/util/src SOURCE_FILES_UTIL)
 #set(SOURCE_FILES test.cpp util/List.cpp util/Comments.cpp Database.cpp Toursite.cpp Place.cpp  )
 add_executable(a test.cpp ${SOURCE_FILES} ${SOURCE_FILES_UTIL}
-        shc/util/Map.h)
+        shc/util/Map.h
+        shc/util/TablePlace.h)
 
 # set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 # set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

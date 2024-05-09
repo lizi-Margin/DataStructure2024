@@ -1,12 +1,14 @@
 # DS2024 - shc 
-| 这个版本包含M1的所有文件,基本可用。
+| 所有接口已经过测试,基本可用。
 
 ## Test.cpp
-<center><img src="./assets/test-0.png" alt="png" >
-<p><span style="font-size: 8px;">test.cpp - 0.2.0</span></p></center>
+<center><img src="./assets/test-1.png" alt="png" >
+<center><img src="./assets/test-1-1.png" alt="png" >
+<p><span style="font-size: 8px;">test.cpp - 0.4.0</span></p></center>
 
 ## Bugs
 * 文件读取字符串过长会失败，暂时不支持更长的景点介绍。
+* 千万不要试图用IDE打开Database/toursite_table.csv，会发生可怕的事情。
 ---
 
 ## Development Log
@@ -37,3 +39,10 @@
 * 正在开发: Map<>,(HashMap?)
 * 正在开发: StringChunkList, 为TableBase实现内嵌AC自动机
 
+### 2024.5.10 
+* 完成开发: TableMatrixRoute & TableRoute & TablePlaces etc.
+* 完成开发: 拥塞矩阵和道路可通过矩阵的存储
+* 完成测试: 拥塞矩阵和道路可通过矩阵相关服务
+* 完善数据: 用更符合常识的数据替换了旧数据，现在更加逆天了
+* 目前所有接口已完成初步测试
+* 数据库扩容: 景点数增至400

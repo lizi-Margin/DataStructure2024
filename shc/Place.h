@@ -27,7 +27,9 @@ protected :
   
 public:
   PlaceRM();
+  ~PlaceRM();
   explicit PlaceRM(PlaceRM * );
+  void set_place_comment_table(TablePlaceComments* tb);
   void set_info(int index,std::string*name, std::string*introduction, std::string*label,int likes,TablePlaceComments * table);
  
   int get_index() override;

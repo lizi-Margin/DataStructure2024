@@ -12,6 +12,7 @@ public:
     virtual type get(int index)=0;
     virtual int  length()=0;
     virtual void print()=0;
+    virtual void clear()=0;
 };
 
 
@@ -35,9 +36,22 @@ public:
         main_list = new  t[cap];
         next = n ;
     }
+//    explicit ChunkListNode(ChunkListNode<t>* copy_target ){
+
+//        for (int i =0 ; i <DEFAULT_CHUNKNODE_CAPACITY ;i +=1){
+//            main_list[i] = copy_target->main_list[i];
+//        }
+//        next = copy_target->next;
+//    }
+    void copy_main_list (int cap ,const ChunkListNode<t>* copy_target ){
+        for (int i =0 ; i <cap ;i +=1){
+            main_list[i] = copy_target->main_list[i];
+        }
+    }
 
     ~ChunkListNode (){
-        delete [] main_list ; 
+        delete next;
+        delete[]  main_list ;
     }
 };
 
@@ -53,7 +67,7 @@ protected:
     int len ;
     int node_used ; 
 
-    ChunkListNode<type> * first;
+    ChunkListNode<type> * first; // it is last actually
  
     type _get(int index){
         if ( index >= len || index <0 ) { return type() ;}
@@ -65,7 +79,8 @@ protected:
             p  = p->next;
         }
         return p->main_list[reminder];
-    } 
+    }
+
 
 
 public:
@@ -87,12 +102,42 @@ public:
         first = nullptr;
     }
 
+    explicit  ChunkList(const ChunkList<type>* copy_target){
+        node_capacity = copy_target ->node_capacity;
+        len = copy_target ->len;
+        node_used = copy_target->node_used;
+        if (node_used>0) {
+            first = new ChunkListNode<type>(node_capacity, nullptr);
+            first->copy_main_list(node_capacity,copy_target->first);
+            ChunkListNode<type> * last = first;
+            ChunkListNode<type> * their_p =copy_target->first;
+            for (int i = 1; i < node_used; i += 1) {
+                their_p = their_p->next;
+                last->next = new ChunkListNode<type>(node_capacity, nullptr);
+                last = last->next;
+                last ->copy_main_list(node_capacity,their_p);
+            }
+        }
+    }
 
-    ~ChunkList(){
-        delete[] first;
+    void clear()override{
+
+
+        delete first;
+
+        len = 0;
+        node_used = 0;
         first = nullptr;
     }
 
+    ~ChunkList(){
+        delete first;
+        first = nullptr;
+    }
+
+    int get_node_capacity(){
+        return node_capacity;
+    }
 
     void append(type content)override{
         len +=1;

@@ -5,7 +5,7 @@
 #include "../DatabaseIF.h"
 #include "util/File.h"
 
-#define DATABASE_TOURSITE_CAPACITY 200
+#define DATABASE_TOURSITE_CAPACITY 400
 
 /*
   Implements of databaseIF.
@@ -39,6 +39,9 @@ public :
   int load_database(std :: string relative_address)override; /* 从指定路径导入, 返回值判断是否成功 */
   int load_database(std :: string relative_address,int size);
   int load_toursite(int index);
+  int save_toursite(int index);
+  int export_toursite(int index,int from,int to_not_included);
+//  int export_toursite(int index,std::string &addr);
   int  load_all();
   int  save_all()override;
   void print_all ();

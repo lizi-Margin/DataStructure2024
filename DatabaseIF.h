@@ -6,6 +6,7 @@
   ALL definitions here below.
   shc 2024
 */
+/* 全部接口均已完成 2024.5.10 */
 
 class Place {
 public:
@@ -23,15 +24,13 @@ struct ToursiteTopo
   std :: string * toursite_name ;
   int  place_num;       // 顶点数 
   Place **  places;        // 顶点表
-  int** adjacent_matrix;   
-
-  /* 暂不支持的部分 */
+  int** adjacent_matrix;
+  /* 路径拥塞程度图 (>=0) */
+  int** adjacent_matrix_congestion;
   /* 移动方式可行邻接图 (0/1标识不可行/可行) */
   int** adjacent_matrix_walk;
   int** adjacent_matrix_bike;
-  int** adjacent_matrix_elebike;
-  /* 路径拥塞程度图 (>=0) */
-  int** adjacent_matrix_congestion;
+  int** adjacent_matrix_ebike;
 };
 
 class  Database_IF{
@@ -80,9 +79,5 @@ public:
     virtual std::string* get_place_comment(int index,int place_index,int comment_index)  = 0; 
     /* 查询场所评价点赞数 */ 
     virtual int get_place_comment_like_num(int index,int place_index,int comment_index)  = 0;
-
-    /* 未通过测试的接口 */
-    /* 无() */
 };
-
 #endif

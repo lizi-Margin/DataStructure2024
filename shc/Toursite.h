@@ -1,4 +1,4 @@
-#ifndef TOURSITE__
+#ifndef TOURSITE_H
 #define TOURSITE_H
 #include <string>
 #include "Place.h"
@@ -6,6 +6,7 @@
 #include "../DatabaseIF.h"
 #include "util/File.h"
 #include "util/Tables.h"
+#include "util/TablePlace.h"
 # define TOURSITE_CAPACITY 100
 
 /*
@@ -42,9 +43,11 @@ protected:            // 邻接矩阵
   bool loaded;
 
   /* struct */
+  TablePlace* place_table  ;
   TableComments * comments_table ;
   TablePlaceComments * place_comments_table;
   TableDiary * diary_table;
+  TableRoute * route_table;
   
   int _check_and_load();
 
@@ -57,13 +60,13 @@ protected:            // 邻接矩阵
   void _sync_grade();
 
   int ** _copy_adjacent_matrix();
-  Place ** _copy_places();
+  Place ** _get_places();
 
   void _print_matrix();
 
   int _brute(std::string*t, std::string*p);
 
-  bool  _place_index_in_range(int index) const;
+  [[nodiscard]] bool  _place_index_in_range(int index) const;
 public:
 
   ToursiteRM();
@@ -73,8 +76,8 @@ public:
   
   int load();
   int save();
+  int save(int to_index);
 
-  
   void add_comment(std:: string*content);
   void add_like();
   void print_info(); 
@@ -99,7 +102,7 @@ public:
   std::string*  get_introduction ();
   int get_grade() ;
 
-  int get_place_num() const;
+  [[nodiscard]] int get_place_num() const;
   /* setter*/
 
   void set_info(int index , std:: string *name , std:: string *intro,int place_num  ,int like_num , std:: string * add); 

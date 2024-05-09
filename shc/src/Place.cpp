@@ -12,6 +12,12 @@ PlaceRM :: PlaceRM(){
     place_comment_table = nullptr;
 }
 
+PlaceRM:: ~PlaceRM(){
+    delete place_name;
+    delete place_introduction;
+    delete place_label;
+    delete place_comment_table;
+}
 PlaceRM :: PlaceRM(PlaceRM * place){
     place_index = place->get_index();
     likes = place->get_like_num();
@@ -25,7 +31,9 @@ PlaceRM :: PlaceRM(PlaceRM * place){
 }
 
 
-
+void PlaceRM::set_place_comment_table(TablePlaceComments* tb){
+    place_comment_table = tb;
+}
 
 
 int PlaceRM :: get_index(){
