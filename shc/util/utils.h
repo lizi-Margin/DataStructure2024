@@ -130,5 +130,13 @@ void static test_route_table(){
 
     }
 
+    void static reset_toursite_table( ) {
+        std::string abs_path = std::string("C:/Users/33149/Desktop/DS2024/pack/shc/Database/toursite_table.csv");
+        TableToursite tb;
+        tb.load(abs_path);
+        tb.reset_random();
+        tb.save(abs_path);
+    }
+
 }
 # endif

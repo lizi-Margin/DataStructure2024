@@ -10,6 +10,7 @@ class List{
 public:
     virtual void append(type stuff)=0;
     virtual type get(int index)=0;
+    virtual void set(int index,type value)=0;
     virtual int  length()=0;
     virtual void print()=0;
     virtual void clear()=0;
@@ -81,6 +82,17 @@ protected:
         return p->main_list[reminder];
     }
 
+    void _set(int index,type value){
+        if ( index >= len || index <0 ) { return ;}
+        int reminder = index % node_capacity;
+        int node_index =  (index) / node_capacity;
+        int rev_node_index = node_used -  node_index -1 ;
+        ChunkListNode<type> * p =  first;
+        for (int i = 0 ; i < rev_node_index ; i +=1){
+            p  = p->next;
+        }
+        p->main_list[reminder] = value;
+    }
 
 
 public:
@@ -160,6 +172,12 @@ public:
         return _get(index);
     }
 
+
+    void set(int index,type value)override{
+        if (index >=0 and index < len){
+            _set(index,value);
+        }
+    }
 
     int length()override{
         return len ;

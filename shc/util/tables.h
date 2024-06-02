@@ -304,10 +304,45 @@ public:
 
 class TableComments:public TableBase{
 public:
+
+    // ChunkList<std::string> random_content;
+    // void load_random_content(){
+    //     random_content.append("这是景区评论。里面超好玩，里面的人说话又好听。");
+    //     random_content.append("这是景区评论。");
+    //     random_content.append("这是景区评论。里面超好玩儿，里面的人说话又好听。");
+    //     random_content.append("这是景区评论。里面超好玩儿啊啊啊，里面的人说话又好听。");
+    //     random_content.append("景区评论!今天在这里。。，今天很开心！");
+    //     random_content.append("这是一条景区评论");
+    // }
+    // void reset_one_row(int n ){
+    //     std::string  random_name = random_content.get( (1*n + 2) % random_content.length() ) +" comment_id:" + std::to_string(n) + "  " ;
+    //     ((ChunkList<std::string>*)columns ->get(1))->set(n,random_name);
+
+    // }
+    // void  reset_random  () {
+    //     int len = _get_length();
+    //     for(int i = 0 ; i<len ;i+=1){
+    //         reset_one_row(i);
+    //     }
+    // } 
+    // int save(std::string &address){
+    //     reset_random();
+    //     auto csv_writer = new CSVWriter(address.data());
+    //     if ( csv_writer == nullptr || !csv_writer->is_open()){return 1 ;}
+        
+    //     csv_writer->write_row_num(((ChunkList<int>*)(columns->get(0)))->length());
+    //     _save_content(csv_writer); 
+
+        
+    //     csv_writer->close();
+    //     return 0;
+    // }
+
     TableComments():TableBase(){
         add_int_column("index");
         add_string_column("content");
         add_int_column("likes");
+        // load_random_content();
     }
 
     std::string * get_comment(int index){
@@ -356,10 +391,44 @@ public:
 
 class TableDiary:public TableBase{
 public:
+    // ChunkList<std::string> random_content;
+    // void load_random_content(){
+    //     random_content.append("今天，我在这里玩到了心心念念的国产游戏‘元神’，要爽飞了！");
+    //     random_content.append("这是一条日记");
+    //     random_content.append("写日记!这里太好玩了！");
+    //     random_content.append("写日记!今天，今天很开心！");
+    //     random_content.append("这是一条日记");
+    // }
+    // void reset_one_row(int n ){
+    //     std::string  random_name = random_content.get( (1*n + 2) % random_content.length() ) +" diary_id:" + std::to_string(n)  ;
+    //     ((ChunkList<std::string>*)columns ->get(1))->set(n,random_name);
+    //     ((ChunkList<int>*)columns ->get(0))->set(n,n);
+
+    // }
+    // void  reset_random  () {
+    //     int len = _get_length();
+    //     for(int i = 0 ; i<len ;i+=1){
+    //         reset_one_row(i);
+    //     }
+    // } 
+    // int save(std::string &address){
+    //     // reset_random();
+    //     auto csv_writer = new CSVWriter(address.data());
+    //     if ( csv_writer == nullptr || !csv_writer->is_open()){return 1 ;}
+        
+    //     csv_writer->write_row_num(((ChunkList<int>*)(columns->get(0)))->length());
+    //     _save_content(csv_writer); 
+        
+    //     csv_writer->close();
+    //     return 0;
+    // }
+
+
     TableDiary():TableBase(){
         add_int_column("index");
         add_string_column("content");
         add_int_column("likes");
+        // load_random_content();
     }
 
     std::string * get_diary(int index){
@@ -372,13 +441,84 @@ public:
 
 class TableToursite:public TableBase{
 public:
+
+    ChunkList<std::string> toursite_names  ;
+    ChunkList<std::string> toursite_intros  ;
+    ChunkList<int> toursite_likes  ;
     TableToursite():TableBase(){
         add_int_column("index");
         add_string_column("name");
         add_string_column("introduction");
         add_int_column("place_num");
         add_int_column("likes");
+
+        toursite_names.append("北京邮电大学");
+        toursite_names.append("北京师范大学");
+        toursite_names.append("北京科技大学");
+        toursite_names.append("北京航空大学");
+        toursite_names.append("北京大学");
+        toursite_names.append("清华大学");
+        toursite_names.append("北京联合大学");
+        toursite_names.append("EF大学");
+        toursite_names.append("北京外国语大学");
+        toursite_names.append("北京工业大学");
+        toursite_names.append("北京公园A");
+        toursite_names.append("北京公园B");
+        toursite_names.append("北京人民公园C");
+        toursite_names.append("北京人民公园D");
+        toursite_names.append("人民公园E");
+        toursite_names.append("人民公园F");
+        toursite_names.append("人民公园G");
+        toursite_names.append("玉渊潭公园H");
+        toursite_names.append("天坛公园I");
+        toursite_names.append("航空航天主题公园J");
+
+
+        toursite_intros.append("北京邮电大学介绍...");
+        toursite_intros.append("北京师范大学介绍...");
+        toursite_intros.append("北京科技大学介绍...");
+        toursite_intros.append("北京航空大学介绍...");
+        toursite_intros.append("北京大学介绍...");
+        toursite_intros.append("清华大学介绍...");
+        toursite_intros.append("北京联合大学介绍...");
+        toursite_intros.append("EF大学介绍...");
+        toursite_intros.append("北京外国语大学介绍...");
+        toursite_intros.append("北京工业大学介绍...");
+        toursite_intros.append("北京公园A介绍...");
+        toursite_intros.append("北京公园B介绍...");
+        toursite_intros.append("北京人民公园C介绍...");
+        toursite_intros.append("北京人民公园D介绍...");
+        toursite_intros.append("人民公园E介绍...");
+        toursite_intros.append("人民公园F介绍...");
+        toursite_intros.append("人民公园G介绍...");
+        toursite_intros.append("玉渊潭公园H介绍...");
+        toursite_intros.append("天坛公园I介绍...");
+        toursite_intros.append("航空航天主题公园J介绍...");
+
+        toursite_likes.append(545);
+        toursite_likes.append(345);
+        toursite_likes.append(525);
+        toursite_likes.append(548);
+        toursite_likes.append(245);
+        toursite_likes.append(441);
+        toursite_likes.append(423);
+        toursite_likes.append(483);
+        toursite_likes.append(423);
+        toursite_likes.append(403);
+        toursite_likes.append(55);
+        toursite_likes.append(514);
+        toursite_likes.append(114);
+        toursite_likes.append(415);
+        toursite_likes.append(805);
+        toursite_likes.append(705);
+        toursite_likes.append(245);
+        toursite_likes.append(105);
+        toursite_likes.append(485);
+        toursite_likes.append(94);
     }
+
+
+
     void append_one_row(){
         auto col = ((ChunkList<int>*)columns->get(0));
         col ->append(col ->get(col->length()-1)+1);
@@ -392,11 +532,36 @@ public:
             }
         }
     }
+
+
+
     void append_n_row(int n){
         for(int i = 0; i<n ;i +=1){
             append_one_row();
         }
     }
+
+    
+
+
+    void reset_one_row(int n ){
+        std::string  random_name = toursite_names.get( (4*n + 2) % toursite_names.length() ) + std::to_string(n) ;
+        ((ChunkList<std::string>*)columns ->get(1))->set(n,random_name);
+
+        std::string  random_intro = toursite_intros.get( (4*n + 2) % toursite_intros.length() ) + std::to_string(n) ;
+        ((ChunkList<std::string>*)columns ->get(2))->set(n,random_intro);
+
+        int  random_likes = toursite_likes.get( (11*n + 5)% toursite_likes.length());
+        ((ChunkList<int>*)columns ->get(4))->set(n,random_likes);
+    }
+
+    void  reset_random  () {
+        int len = _get_length();
+        for(int i = 0 ; i<len ;i+=1){
+            reset_one_row(i);
+        }
+    }
+
 };
 
 class TableRoute:public  TableBase{

@@ -22,7 +22,7 @@ int Database:: _init_toursite_list (CSVReader * proxy, int len,std::string*relat
 			int likes;
 			std:: string * address ;
 			proxy->read_colomn(index);	
-		    proxy->	read_colomn(name);
+		  proxy->	read_colomn(name);
 			proxy->read_colomn(introduction);	
 			proxy->read_colomn(place_num);	
 			proxy->read_colomn(likes);	

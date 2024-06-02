@@ -68,13 +68,13 @@ public :
   std::string* get_toursite_comment(int index,int comment_index)  override;
   int get_toursite_comment_like_num(int index,int comment_index)  override;
 
-    int get_toursite_diary_num(int index)  override;  
-    std::string* get_toursite_diary(int index,int comment_index)  override; 
-    int get_toursite_diary_like_num(int index,int comment_index)  override; 
+  int get_toursite_diary_num(int index)  override;  
+  std::string* get_toursite_diary(int index,int comment_index)  override; 
+  int get_toursite_diary_like_num(int index,int comment_index)  override; 
 
-    int get_place_comment_num(int index , int place_index)  override;  
-    std::string* get_place_comment(int index,int place_index,int comment_index)  override; 
-    int get_place_comment_like_num(int index,int place_index,int comment_index)  override; 
+  int get_place_comment_num(int index , int place_index)  override;  
+  std::string* get_place_comment(int index,int place_index,int comment_index)  override; 
+  int get_place_comment_like_num(int index,int place_index,int comment_index)  override; 
 
 
 

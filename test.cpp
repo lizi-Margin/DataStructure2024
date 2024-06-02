@@ -20,6 +20,14 @@ int test(){
   utils::use_interface(db);
   utils::use_interface_extend(db);
 
+  // while (1)
+  // {
+  //   std::string str;
+  //   std::cin>>str;
+  //   std::cout<< *db->get_toursites_index_by_search(str,10);
+  // }
+  
+
   std :: cout << "saving"<<std:: endl ;
   db->load_all();
   db->save_all();
@@ -30,7 +38,8 @@ int test(){
 
 int main (){
   test();
-  //utils::extend_toursite_table(30,400);
+  // utils::extend_toursite_table(30,400);
+  // utils::reset_toursite_table();      
   return 0 ;
 }
 
