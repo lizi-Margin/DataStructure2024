@@ -94,12 +94,12 @@ int ToursiteRM::load(){
     route_table = new TableRoute();
     place_table = new TablePlace();
 
-    int adj_ret = 1 ;
-    CSVReader adj_proxy(addr_matrix.data()) ;
-    if (adj_proxy.is_open()){
-        adj_ret = _load_adj_matrix(&adj_proxy );
-        adj_proxy.close();
-    }
+    int adj_ret = 0 ;
+    // CSVReader adj_proxy(addr_matrix.data()) ;
+    // if (adj_proxy.is_open()){
+    //     adj_ret = _load_adj_matrix(&adj_proxy );
+    //     adj_proxy.close();
+    // }
 
   int places_ret = place_table ->load(addr_places);
   int comments_ret = comments_table->load(addr_comment) ;
@@ -137,15 +137,15 @@ int ToursiteRM::save(int to_index){
     std::string  addr_diary = (std::string(*address+std::to_string(to_index)+"/diary.csv"));
     std::string  addr_route = (std::string(*address+std::to_string(to_index)+"/routes.csv"));
 
-    CSVWriter adj_proxy(addr_matrix.data()) ;
-  CSVWriter places_proxy(addr_places.data()) ;
+    // CSVWriter adj_proxy(addr_matrix.data()) ;
+  // CSVWriter places_proxy(addr_places.data()) ;
 
-  int adj_ret = 1 ;
+  int adj_ret = 0 ;
 //  int places_ret = 1;
-  if (adj_proxy.is_open()){
-    adj_ret = _save_adj_matrix(&adj_proxy );    
-    adj_proxy.close();
-  } 
+  // if (adj_proxy.is_open()){
+  //   adj_ret = _save_adj_matrix(&adj_proxy );    
+  //   adj_proxy.close();
+  // } 
 //  if (places_proxy.is_open()){
 //    places_ret = _save_places(&places_proxy );
 //    places_proxy.close();

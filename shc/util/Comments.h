@@ -6,6 +6,7 @@
 /*
   A Linked list class for any kind of comment.
   shc 2024
+  已经弃用
 */
 
 class  Comments {

@@ -150,6 +150,27 @@ protected:
         return -1 ;
     }
 
+    void _append_one_row(){
+        if (_get_length()<=0) return;
+        auto col = ((ChunkList<int>*)columns->get(0));
+        col ->append(col ->get(col->length()-1)+1);
+        for(int i = 1 ; i< columns->length();i+=1){
+            if (column_type->get(i) == 0){
+                col = ((ChunkList<int>*)columns->get(i));
+                col ->append(col ->get(col->length()-1));
+            }else{
+                auto cols = ((ChunkList<std::string>*)columns->get(i));
+                cols ->append(cols ->get(cols->length()-1));
+            }
+        }
+    }
+
+    void _reset_one_row(int n ){
+        if (_get_length()<=0) return;
+        if (column_type->get(0) == 0){
+            ((ChunkList<int>*)columns ->get(0))->set(n,n);
+        }
+    }
 
 
 
@@ -189,10 +210,29 @@ public:
             }
         }
     };
+    
+    
 
+    void append_n_row(int n){
+        for(int i = 0; i<n ;i +=1){
+            _append_one_row();
+        }
+    }
+    void append_to_n_row(int n ){
+        int len = _get_length();
+        if (n <= len) return;
+        append_n_row(n - len);
+    }
+    
+
+    void  reset_random  () {
+        int len = _get_length();
+        for(int i = 0 ; i<len ;i+=1){
+            _reset_one_row(i);
+        }
+    } 
 
     void clear(){
-
         columns->clear();
         column_type->clear();
         column_names->clear();
@@ -306,6 +346,7 @@ class TableComments:public TableBase{
 public:
 
     // ChunkList<std::string> random_content;
+    // ChunkList<std::string> random_content1;
     // void load_random_content(){
     //     random_content.append("这是景区评论。里面超好玩，里面的人说话又好听。");
     //     random_content.append("这是景区评论。");
@@ -313,11 +354,18 @@ public:
     //     random_content.append("这是景区评论。里面超好玩儿啊啊啊，里面的人说话又好听。");
     //     random_content.append("景区评论!今天在这里。。，今天很开心！");
     //     random_content.append("这是一条景区评论");
+
+    //     random_content1.append("今天在这里。。，今天很开心！");
+    //     random_content1.append("这里好玩。");
+    //     random_content1.append("这是我的景区评论。");
+    //     random_content1.append("里面超好玩儿啊啊啊!");
+    //     random_content1.append("今天很开心！");
     // }
     // void reset_one_row(int n ){
-    //     std::string  random_name = random_content.get( (1*n + 2) % random_content.length() ) +" comment_id:" + std::to_string(n) + "  " ;
-    //     ((ChunkList<std::string>*)columns ->get(1))->set(n,random_name);
-
+    //     std::string  random_name = random_content.get( (1*n+rand() + 2) % random_content.length() )+ random_content1.get( (n+rand() ) % random_content1.length() ) +" comment_id:" + std::to_string(n) + "  " ;
+    //     ((ChunkList<int>*)columns ->get(0))->set(n,n);
+    //     ((ChunkList<std::string>*)columns ->get(1))->set(n,random_name);     
+    //     ((ChunkList<int>*)columns ->get(2))->set(n,rand()%80 * 3 );
     // }
     // void  reset_random  () {
     //     int len = _get_length();
@@ -326,6 +374,7 @@ public:
     //     }
     // } 
     // int save(std::string &address){
+    //     append_to_n_row(200+rand()%400);
     //     reset_random();
     //     auto csv_writer = new CSVWriter(address.data());
     //     if ( csv_writer == nullptr || !csv_writer->is_open()){return 1 ;}
@@ -360,11 +409,55 @@ protected:
         return _get_nst_value_index(index, 1, comment_index);
     }
 public:
+
+    // ChunkList<std::string> random_content;
+    // void load_random_content(){
+    //     random_content.append("我是产所评论。我爱玩元神！");
+    //     random_content.append("我是产所评论。");
+    //     random_content.append("我是产所评论。啊啦拉拉，这里超好玩的~");
+    //     random_content.append("我是产所评论。好玩好玩！！");
+    //     random_content.append("我是产所评论。啊啦拉拉~");
+    //     random_content.append("我是产所评论。啊啦拉拉~~~");
+    //     random_content.append("我是产所评论。这里超好玩的!");
+    // }
+    // void reset_one_row(int n ){
+    //     std::string  random_name = random_content.get( (1*n +rand()+ 2) % random_content.length() ) +" comment_id:" + std::to_string(n)  ;
+    //     ((ChunkList<int>*)columns ->get(0))->set(n,n);
+    //     ((ChunkList<int>*)columns ->get(1))->set(n,rand()%100);
+    //     ((ChunkList<std::string>*)columns ->get(2))->set(n,random_name);
+    //     ((ChunkList<int>*)columns ->get(3))->set(n,rand()%20 * 3 );
+        
+
+    // }
+    // void  reset_random  () {
+    //     int len = _get_length();
+    //     for(int i = 0 ; i<len ;i+=1){
+    //         reset_one_row(i);
+    //     }
+    // } 
+    // int save(std::string &address){
+    //     append_to_n_row(100*4 + rand()%500);
+    //     reset_random();
+    //     auto csv_writer = new CSVWriter(address.data());
+    //     if ( csv_writer == nullptr || !csv_writer->is_open()){return 1 ;}
+        
+    //     csv_writer->write_row_num(((ChunkList<int>*)(columns->get(0)))->length());
+    //     _save_content(csv_writer); 
+        
+    //     csv_writer->close();
+    //     return 0;
+    // }
+
+
+
+
+
     TablePlaceComments():TableBase(){
         add_int_column("index");
         add_int_column("place_index");
         add_string_column("content");
         add_int_column("likes");
+        // load_random_content();
     }
     explicit  TablePlaceComments(TablePlaceComments* tb):TableBase(tb){}
     std::string * get_place_comment(int index,int comment_index){
@@ -392,17 +485,27 @@ public:
 class TableDiary:public TableBase{
 public:
     // ChunkList<std::string> random_content;
+    // ChunkList<std::string> random_content1;
     // void load_random_content(){
     //     random_content.append("今天，我在这里玩到了心心念念的国产游戏‘元神’，要爽飞了！");
     //     random_content.append("这是一条日记");
     //     random_content.append("写日记!这里太好玩了！");
     //     random_content.append("写日记!今天，今天很开心！");
     //     random_content.append("这是一条日记");
+
+    //     random_content1.append("要爽飞了！");
+    //     random_content1.append("这次旅行十分愉快！");
+    //     random_content1.append("这里太好玩了！");
+    //     random_content1.append("而且今天很开心！");
+    //     random_content1.append("旅行十分愉快，这里太好玩了！");
     // }
     // void reset_one_row(int n ){
-    //     std::string  random_name = random_content.get( (1*n + 2) % random_content.length() ) +" diary_id:" + std::to_string(n)  ;
-    //     ((ChunkList<std::string>*)columns ->get(1))->set(n,random_name);
+    //     std::string  random_name = random_content.get( (1*n + rand()+2) % random_content.length() ) + random_content1.get( ( rand()) % random_content1.length() ) +" diary_id:" + std::to_string(n)  ;
+
     //     ((ChunkList<int>*)columns ->get(0))->set(n,n);
+    //     ((ChunkList<std::string>*)columns ->get(1))->set(n,random_name);
+    //     ((ChunkList<int>*)columns ->get(2))->set(n,rand()%40 * 3);
+        
 
     // }
     // void  reset_random  () {
@@ -412,7 +515,8 @@ public:
     //     }
     // } 
     // int save(std::string &address){
-    //     // reset_random();
+    //     append_to_n_row(150 + rand()%900);
+    //     reset_random();
     //     auto csv_writer = new CSVWriter(address.data());
     //     if ( csv_writer == nullptr || !csv_writer->is_open()){return 1 ;}
         
@@ -444,7 +548,6 @@ public:
 
     ChunkList<std::string> toursite_names  ;
     ChunkList<std::string> toursite_intros  ;
-    ChunkList<int> toursite_likes  ;
     TableToursite():TableBase(){
         add_int_column("index");
         add_string_column("name");
@@ -495,26 +598,6 @@ public:
         toursite_intros.append("天坛公园I介绍...");
         toursite_intros.append("航空航天主题公园J介绍...");
 
-        toursite_likes.append(545);
-        toursite_likes.append(345);
-        toursite_likes.append(525);
-        toursite_likes.append(548);
-        toursite_likes.append(245);
-        toursite_likes.append(441);
-        toursite_likes.append(423);
-        toursite_likes.append(483);
-        toursite_likes.append(423);
-        toursite_likes.append(403);
-        toursite_likes.append(55);
-        toursite_likes.append(514);
-        toursite_likes.append(114);
-        toursite_likes.append(415);
-        toursite_likes.append(805);
-        toursite_likes.append(705);
-        toursite_likes.append(245);
-        toursite_likes.append(105);
-        toursite_likes.append(485);
-        toursite_likes.append(94);
     }
 
 
@@ -545,13 +628,17 @@ public:
 
 
     void reset_one_row(int n ){
-        std::string  random_name = toursite_names.get( (4*n + 2) % toursite_names.length() ) + std::to_string(n) ;
+        int rand_n = (4*n + 2 + rand()) % toursite_names.length();
+
+        std::string  random_name = toursite_names.get(rand_n  ) + std::to_string(n) ;
         ((ChunkList<std::string>*)columns ->get(1))->set(n,random_name);
 
-        std::string  random_intro = toursite_intros.get( (4*n + 2) % toursite_intros.length() ) + std::to_string(n) ;
+        std::string  random_intro = toursite_intros.get( rand_n %toursite_intros.length()) + std::to_string(n) ;
         ((ChunkList<std::string>*)columns ->get(2))->set(n,random_intro);
 
-        int  random_likes = toursite_likes.get( (11*n + 5)% toursite_likes.length());
+        ((ChunkList<int>*)columns ->get(3))->set(n,100);
+
+        int  random_likes = 100+ rand()%1000;
         ((ChunkList<int>*)columns ->get(4))->set(n,random_likes);
     }
 
@@ -614,8 +701,80 @@ protected:
 
         return matrix;
     }
+
+    void _reset_one_row(int n,int from,int to , int route_len , int cong ,int walk_access,int bike_access,int ebike_access){
+        if (_get_length()<=0) return;
+        
+        ((ChunkList<int>*)columns->get(0))->set(n,n);
+        ((ChunkList<int>*)columns->get(1)      ) ->set(n,from);
+        ((ChunkList<int>*)columns->get(2)      ) ->set(n,to);
+        ((ChunkList<int>*)columns->get(3)      ) ->set(n,route_len);
+        ((ChunkList<int>*)columns->get(4)      ) ->set(n,cong);
+        ((ChunkList<int>*)columns->get(5)      ) ->set(n,walk_access);
+        ((ChunkList<int>*)columns->get(6)      ) ->set(n,bike_access);
+        ((ChunkList<int>*)columns->get(7)      ) ->set(n,ebike_access);
+    }
 public:
+    void append_max(int place_num){
+
+        int len = _get_length();
+
+        int tmp = place_num - 1;
+        int sum = 0;
+        while(tmp> 0){
+            sum += tmp ;
+            tmp -=1;
+        }
+        append_to_n_row(sum);
+
+    }
+    void reset_random(int place_num){
+        
+
+
+        int tmp = place_num - 1;
+        int sum = 0;
+        while(tmp> 0 ){ //&& sum+tmp-1<len){
+            std::cout << tmp<<"?????\n";
+            for(int i =1 ; i <= tmp ; i+=1){
+                if (rand()%10<=8){
+                    int n = sum+i-1;
+                    int from = place_num-tmp - 1;
+                    if (n<_get_length()){ 
+                        _reset_one_row(n,from,from+i,
+                            rand()%20*5+5,
+                            rand()%10*1+0,
+                            1, rand()%2|rand()%2 ,rand()%2);
+                    }else{
+                        add_route(from,from+i,
+                            rand()%20*5+5,
+                            rand()%10*1+0,
+                            1, rand()%2|rand()%2 ,rand()%2);
+                    }
+                }
+            }
+            sum += tmp ;
+            tmp -=1;
+        }
+
+    }
+
+    // int save(std::string &address){
+    //     // reset_random(100);
+    //     auto csv_writer = new CSVWriter(address.data());
+    //     if ( csv_writer == nullptr || !csv_writer->is_open()){return 1 ;}
+    
+    //     csv_writer->write_row_num(((ChunkList<int>*)(columns->get(0)))->length());
+    //     _save_content(csv_writer); 
+    
+    //     csv_writer->close();
+    //     return 0;
+    // }
+
+
+
     TableRoute():TableBase(){
+        
         add_int_column("index");
         add_int_column("from_place_index");
         add_int_column("to_place_index");
@@ -628,9 +787,9 @@ public:
 
     explicit  TableRoute(TableRoute* tb):TableBase((TableBase*)tb){}
 
-    int ** get_intxx_adj_matrix(){
+    int ** get_intxx_adj_matrix(){ 
         return _get_intxx_matrix_with_value(3,1000, true,0);
-}
+    }
     int ** get_intxx_congestion_matrix(){
         return _get_intxx_matrix_with_value(4,0);
     }
