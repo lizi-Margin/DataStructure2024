@@ -1,6 +1,6 @@
 # ifndef LIST_H
 # define LIST_H
-# define DEFAULT_CHUNKNODE_CAPACITY 1000
+# define DEFAULT_CHUNKNODE_CAPACITY 100
 # include <iostream>
 
 /* shc2024 */

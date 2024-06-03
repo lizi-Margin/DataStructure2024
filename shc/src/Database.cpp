@@ -154,10 +154,64 @@ Database::~Database(){
     delete[] toursite_list;
 }
 
+std::filesystem::path Database:: _find_database(const std::filesystem::path& startPath, const std::string& folderName) {
+    for (const auto& entry : std::filesystem::recursive_directory_iterator(startPath)) {
+        if (entry.is_directory() && entry.path().filename() == folderName) {
+            return entry.path();
+        }
+    }
+    return "";
+}
 
+std::string*  Database:: _check_get_database_address(std::string* address){
+  std::filesystem::path database_path(*address);
+  if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
+    return  new std::string(database_path.string());
+  }  
+
+
+  std::cout << "Warning: Database not found Retry1" << std::endl;
+  std::filesystem::path current_path = std::filesystem::current_path();
+  database_path = current_path / "Database/";
+  if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
+    std::cout << "Retry1 Database folder exists at: " << database_path << std::endl;
+    return  new std::string(database_path.string());
+  }  
+
+  std::cout << "Warning: Database not found Retry2" << std::endl;
+  current_path = (*address);
+  database_path = current_path / "Database/";
+  if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
+    std::cout << "Retry2 Database folder exists at: " << database_path << std::endl;
+    return  new std::string(database_path.string());
+  }  
+
+
+  std::cout << "Warning: Database not found Retry3" << std::endl;
+  current_path = (*address);
+  database_path = current_path / "shc/Database/";
+  if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
+    std::cout << "Retry3 Database folder exists at: " << database_path << std::endl;
+    return  new std::string(database_path.string());
+  }  
+
+  std::cout << "Warning: Database not found Retry4" << std::endl;
+  current_path = std::filesystem::current_path();
+  std::string folderName = "Database";
+  database_path = _find_database(current_path, folderName); 
+  if (!database_path.empty()) {
+    std::cout << "Retry4 Database folder path exists at: " << database_path << std::endl;
+    return  new std::string(database_path.string());
+  } 
+
+  std::cout << "ERROR: Database folder does not exist." << std::endl;
+  std::cout << "ERROR: Database load error." << std::endl;
+  return new std::string();
+}
 
 int Database:: load_database(std :: string relative_address){
     auto address = new std::string(relative_address);
+    address = _check_get_database_address(address);
 
     CSVReader proxy((*address +"toursite_table.csv" ).data()) ;
     if (proxy.is_open()){
@@ -176,6 +230,7 @@ int Database:: load_database(std :: string relative_address){
 
 int Database ::load_database(std::string relative_address ,int size){
   auto address = new std::string(relative_address);
+  address = _check_get_database_address(address);
 
   CSVReader proxy((*address +"toursite_table.csv" ).data()) ;
   if (proxy.is_open()){

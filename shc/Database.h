@@ -1,6 +1,7 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 #include<string>
+#include <filesystem>
 #include "Toursite.h" 
 #include "../DatabaseIF.h"
 #include "util/File.h"
@@ -32,6 +33,8 @@ protected:
   void _sync_grade_ladder(); 
 
   bool _index_in_range(int index);
+  std::string*  _check_get_database_address(std::string* address);
+  std::filesystem::path _find_database(const std::filesystem::path& startPath, const std::string& folderName);
 
 public :
   Database();
