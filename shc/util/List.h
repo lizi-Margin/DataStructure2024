@@ -198,16 +198,70 @@ public:
     }
 };
 
+#include "./ACAutomation.h"
 /* Map: string-int key-value map. */
 class StringChunkList:public ChunkList<std::string>{
 private:
     /* data */
-public:
-    
-    explicit StringChunkList(int node_cap ):ChunkList(node_cap){}
+    AC * ac ;
+    bool ac_built = false;
+    void _check_ac_build(){
+        if (not ac_built){
+            ac->build();
+            ac_built = true;
+        }
+    }
+    void _check_ac_rebuild(){
+        if (ac_built){
+            _rebuild_ac();
+            ac_built = false;
+        }
+    }
+    void _rebuild_ac(){
+        delete ac;
+        ac = new AC();
+        for (int i = 0; i < len; i  +=1 ){
+            ac->insert(_get(i).data());
+        } 
+    }
+public:    
 
-    int get_index(std::string s);
-    int search_index(std::string s);
+    StringChunkList(): ChunkList(){
+        ac = new AC();
+    }
+    explicit  StringChunkList(int node_cap): ChunkList( node_cap){
+        ac = new AC();
+    }
+    explicit  StringChunkList (const StringChunkList* copy_target): ChunkList(copy_target){
+        ac = new AC();
+    }
+
+    
+    void append(std::string stuff)override{
+        _check_ac_rebuild();
+        ac->insert(stuff.data());
+        ChunkList::append(stuff);
+    }
+    void set(int index,std::string value)override{
+        ChunkList::set(index,value);
+        _rebuild_ac(); 
+    }
+    void clear()override{
+        ChunkList::clear();
+        delete ac ;
+        ac = new AC();
+    }
+    ~StringChunkList(){
+        ChunkList::~ChunkList();
+        delete ac;
+    }
+
+
+    int search_index(std::string s){
+        _check_ac_build();
+        return ac->solve(s.data());
+    }
 };
+
 
 #endif 

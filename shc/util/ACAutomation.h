@@ -1,11 +1,11 @@
+# ifndef AC_AUTOMATION
+# define AC_AUTOMATION
 #include<iostream>
-#include<cstdio>
 #include<cstring>
 #include<queue>
 
-using namespace std;
-int n;
-char p[1000005];
+static int  n;
+static char p[1000005];
 class AC
 {
 public:
@@ -13,8 +13,9 @@ public:
 	int fail[500010];      //fail指针
 	int mark[500010];      //词典结束标志
 	int cnt;               //节点序号
-	queue<int>q;		   //建立fail指针时需要的队列
-	void initial()         //初始化
+	std::queue<int>q;		   //建立fail指针时需要的队列
+
+	AC()         //初始化
 	{
 		cnt = 0;
 		memset(trie, 0, sizeof(trie));
@@ -22,6 +23,7 @@ public:
 		memset(mark, 0, sizeof(mark));
 		while (!q.empty()) q.pop();
 	}
+
 	void insert(char *s)   //添加模板单词
 	{
 		int i;
@@ -39,6 +41,7 @@ public:
 		}
 		mark[now]++;
 	}
+
 	void build()
 	{
 		int i;
@@ -86,21 +89,4 @@ public:
 		return ans;
 	}
 };
-// int main()
-// {
-//     AC ac; 
-// 	int i, j;
-// 	scanf("%d", &n);
-// 	//AC.initial();
-// 	for (i = 1; i <= n; i++)
-// 	{
-// 		scanf("%s", p);
-// 		ac.insert(p);
-// 	}
-// 	ac.build();
-// 	scanf("%s", p);
-// 	int ans = ac.solve(p);
-// 	cout << ans;
-// 	return 0;
-// }
-
+#endif
