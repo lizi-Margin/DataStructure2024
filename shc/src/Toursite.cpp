@@ -46,7 +46,7 @@ Place * *ToursiteRM :: _get_places(){
     return plcs;
 }
 void ToursiteRM ::_sync_grade(){
-    this-> grade = this-> get_like_num() + 2* 0;//this-> get_comments_num();
+    this-> grade = this-> get_like_num() + 2* this-> get_comment_num();
   }
 
 

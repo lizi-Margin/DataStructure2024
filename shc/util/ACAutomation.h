@@ -4,18 +4,16 @@
 #include<cstring>
 #include<queue>
 
-static int  n;
-static char p[1000005];
 class AC
 {
 public:
-	int trie[500010][26];  //AC自动机需要的搜索树结构
-	int fail[500010];      //fail指针
-	int mark[500010];      //词典结束标志
+	int trie[500010][26];  
+	int fail[500010];      
+	int mark[500010];      //结束标志
 	int cnt;               //节点序号
-	std::queue<int>q;		   //建立fail指针时需要的队列
+	std::queue<int>q;		   
 
-	AC()         //初始化
+	AC()         
 	{
 		cnt = 0;
 		memset(trie, 0, sizeof(trie));
@@ -24,11 +22,11 @@ public:
 		while (!q.empty()) q.pop();
 	}
 
-	void insert(char *s)   //添加模板单词
+	void insert(char *s)  
 	{
 		int i;
 		int len = strlen(s);
-		int now = 0;       //当前节点
+		int now = 0;       
 		for (i = 0; i < len; i++)
 		{
 			int v = s[i] - 'a';
@@ -71,8 +69,7 @@ public:
 			}
 		}
 	}
-	int solve(char *s)
-	{
+	int solve(char *s){
 		int i, j;
 		int len = strlen(s);
 		int now = 0;

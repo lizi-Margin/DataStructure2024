@@ -5,6 +5,7 @@
 #include "Toursite.h" 
 #include "../DatabaseIF.h"
 #include "util/File.h"
+#include "util/BiMap.h"
 
 #define DATABASE_TOURSITE_CAPACITY 400
 
@@ -21,9 +22,11 @@ protected:
   /* main list */
   ToursiteRM ** toursite_list; //access with the index
   ToursiteRM * get_toursite (int index);
+  IntStringBiMap toursite_names;
 
   /* sorted index list */
   int * grade_ladder ;//sort all toursite with grade , toursite presented by index
+  bool grade_ladder_synced = false;
   
   void  _init();
   int _init_toursite_list (CSVReader * proxy, int len,std::string*relative_address);

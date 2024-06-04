@@ -26,10 +26,11 @@ int Database:: _init_toursite_list (CSVReader * proxy, int len,std::string*relat
 			proxy->read_colomn(introduction);	
 			proxy->read_colomn(place_num);	
 			proxy->read_colomn(likes);	
-            address = relative_address;
+      address = relative_address;
 			toursite_list[i] = new  ToursiteRM();
-      
+
       toursite_list[i]->set_info  (index,name,introduction,place_num,likes,address);
+      toursite_names.append(*name);
 		}
   
     return 0 ;
@@ -45,29 +46,59 @@ ToursiteRM * Database :: get_toursite (int index){
     return toursite_list[index];
   }
 
+// int *   Database :: _search_toursites_index_sort_by_grade (std::string * str , int n ){
+//     if ( n > toursite_amount) { n = toursite_amount;}
+//     int * list = new int[toursite_amount];
+//     for ( int ii =0 ; ii < n ; ii +=1) list[ii] = -1; 
+
+
+//     int list_num = 0;
+//     for (int ii = 0 ; ii < toursite_amount ; ii +=1){
+//       if(toursite_list[ii]->name_match_string(str)){
+//         int jj =  list_num;
+//         list[list_num++] = ii;
+
+//         while(jj > 0){
+//           if (toursite_list[(list[jj])]->get_grade ()> toursite_list[(list[jj-1])]->get_grade()){
+//             int temp = list[jj]; list[jj] = list[jj-1];list[--jj] = temp; 
+         
+//           }else{
+//             break;
+//           } 
+//         }
+//       }
+//     }
+         
+//     return list;
+    
+//   }
+
 
 int *   Database :: _search_toursites_index_sort_by_grade (std::string * str , int n ){
     if ( n > toursite_amount) { n = toursite_amount;}
     int * list = new int[toursite_amount];
     for ( int ii =0 ; ii < n ; ii +=1) list[ii] = -1; 
-    int list_num = 0;
-    for (int ii = 0 ; ii < toursite_amount ; ii +=1){
-      if ( this -> toursite_list[ii]->name_match_string(str)){ 
-        int jj =  list_num;
-        list[list_num++] = ii;
 
-        while(jj > 0){
-          if (toursite_list[(list[jj])]->get_grade ()> toursite_list[(list[jj-1])]->get_grade()){
-            int temp = list[jj]; list[jj] = list[jj-1];list[--jj] = temp; 
-            
-          }else{
-            break;
-          } 
+    ChunkList<int> search_res =  toursite_names.get(*str);
+
+    for (int ii =0 ; ii < n;ii+=1){
+      int max_grade = -1;
+      int max_grade_index = 0;
+      int max_grade_arr_ind = 0;
+      for (int jj = 0 ; jj < search_res.length();jj+=1){
+        int index = search_res.get(jj);
+        if (index>=0){
+          int grade = toursite_list[index]->get_grade ();
+          if (grade>max_grade){
+            max_grade = grade;
+            max_grade_index = index;
+            max_grade_arr_ind = jj;
+          }
         }
       }
-            
+      list[ii] = max_grade_index;
+      search_res.set(max_grade_arr_ind,-1);
     }
-
     return list;
   }
 
@@ -111,6 +142,8 @@ int * Database:: _get_top_toursites_index_in_grade_ladder(int n) {
 
 void Database::_sync_grade_ladder(){
   /* inset sort */
+  if (grade_ladder_synced) return;
+
   int i;
   for (int j = 1; j< toursite_amount ; j+=1){
     i = j;
@@ -123,6 +156,7 @@ void Database::_sync_grade_ladder(){
       }
     }
   } 
+  grade_ladder_synced = true;
   // utils:: print_int_list(grade_ladder,toursite_amount);
 } 
 
@@ -223,6 +257,7 @@ int Database:: load_database(std :: string relative_address){
             grade_ladder[i]=toursite_list[i]->get_index();
         }
         proxy.close();
+        _sync_grade_ladder();
         return 0;
     }
     return 1;
