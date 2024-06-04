@@ -543,6 +543,88 @@ public:
     }
 };
 
+
+
+class TableFood:public TableBase{
+public:
+    // ChunkList<std::string> random_name;
+    // ChunkList<std::string> random_label;
+    // void load_random_content(){
+    //     random_name.append("面皮");
+    //     random_name.append("鱼香肉丝");
+    //     random_name.append("麻辣烫");
+    //     random_name.append("毛血旺");
+    //     random_name.append("牛肉拉面");
+    //     random_name.append("山西刀削面");
+    //     random_name.append("涮毛肚");
+    //     random_name.append("猪肉炒手");
+
+    //     random_label.append("鲁菜");
+    //     random_label.append("川菜");
+    //     random_label.append("粤菜");
+    //     random_label.append("苏菜");
+    //     random_label.append("闽菜");
+    //     random_label.append("浙菜");
+    //     random_label.append("湘菜");
+    //     random_label.append("徽菜");
+
+    // }
+    // void reset_one_row(int n ){
+    //     std::string  this_name = random_name.get( (1*n + rand()+2) % random_name.length() ) +" food_id:" + std::to_string(n)  ;
+    //     std::string  this_label = random_label.get( (1*n + rand()) % random_label.length() ) +" food_id:" + std::to_string(n)  ;
+
+    //     ((ChunkList<int>*)columns ->get(0))->set(n,n);
+    //     ((ChunkList<std::string>*)columns ->get(1))->set(n,this_name);
+    //     ((ChunkList<std::string>*)columns ->get(2))->set(n,this_label);
+    //     ((ChunkList<int>*)columns ->get(3))->set(n,rand()%40 * 3);
+
+    // }
+    // void  reset_random  () {
+    //     int len = _get_length();
+    //     for(int i = 0 ; i<len ;i+=1){
+    //         reset_one_row(i);
+    //     }
+    // } 
+
+    // int save(std::string &address){
+    
+    //     append_to_n_row(150 + rand()%700);
+    //     reset_random();
+
+    //     auto csv_writer = new CSVWriter(address.data());
+    //     if ( csv_writer == nullptr || !csv_writer->is_open()){return 1 ;}
+        
+    //     csv_writer->write_row_num(((ChunkList<int>*)(columns->get(0)))->length());
+    //     _save_content(csv_writer); 
+        
+    //     csv_writer->close();
+    //     return 0;
+    // }
+
+
+    TableFood():TableBase(){
+        add_int_column("index");
+        add_string_column("name");
+        add_string_column("label");
+        add_int_column("likes");
+        // load_random_content();
+    }
+
+    std::string * get_food_name(int index){
+        return _get_string(index,1);
+    }
+
+    std::string * get_food_label(int index){
+        return _get_string(index,2);
+    }
+    int get_food_like_num(int index){
+        return _get_int(index,3);
+    }
+
+};
+
+
+
 class TableToursite:public TableBase{
 public:
 

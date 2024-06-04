@@ -188,59 +188,60 @@ Database::~Database(){
     delete[] toursite_list;
 }
 
-std::filesystem::path Database:: _find_database(const std::filesystem::path& startPath, const std::string& folderName) {
-    for (const auto& entry : std::filesystem::recursive_directory_iterator(startPath)) {
-        if (entry.is_directory() && entry.path().filename() == folderName) {
-            return entry.path();
-        }
-    }
-    return "";
-}
+// std::filesystem::path Database:: _find_database(const std::filesystem::path& startPath, const std::string& folderName) {
+//     for (const auto& entry : std::filesystem::recursive_directory_iterator(startPath)) {
+//         if (entry.is_directory() && entry.path().filename() == folderName) {
+//             return entry.path();
+//         }
+//     }
+//     return "";
+// }
 
 std::string*  Database:: _check_get_database_address(std::string* address){
-  std::filesystem::path database_path(*address);
-  if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
-    return  new std::string(database_path.string());
-  }  
+  // std::filesystem::path database_path(*address);
+  // if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
+  //   return  new std::string(database_path.string());
+  // }  
 
 
-  std::cout << "Warning: Database not found Retry1" << std::endl;
-  std::filesystem::path current_path = std::filesystem::current_path();
-  database_path = current_path / "Database/";
-  if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
-    std::cout << "Retry1 Database folder exists at: " << database_path << std::endl;
-    return  new std::string(database_path.string());
-  }  
+  // std::cout << "Warning: Database not found Retry1" << std::endl;
+  // std::filesystem::path current_path = std::filesystem::current_path();
+  // database_path = current_path / "Database/";
+  // if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
+  //   std::cout << "Retry1 Database folder exists at: " << database_path << std::endl;
+  //   return  new std::string(database_path.string());
+  // }  
 
-  std::cout << "Warning: Database not found Retry2" << std::endl;
-  current_path = (*address);
-  database_path = current_path / "Database/";
-  if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
-    std::cout << "Retry2 Database folder exists at: " << database_path << std::endl;
-    return  new std::string(database_path.string());
-  }  
+  // std::cout << "Warning: Database not found Retry2" << std::endl;
+  // current_path = (*address);
+  // database_path = current_path / "Database/";
+  // if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
+  //   std::cout << "Retry2 Database folder exists at: " << database_path << std::endl;
+  //   return  new std::string(database_path.string());
+  // }  
 
 
-  std::cout << "Warning: Database not found Retry3" << std::endl;
-  current_path = (*address);
-  database_path = current_path / "shc/Database/";
-  if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
-    std::cout << "Retry3 Database folder exists at: " << database_path << std::endl;
-    return  new std::string(database_path.string());
-  }  
+  // std::cout << "Warning: Database not found Retry3" << std::endl;
+  // current_path = (*address);
+  // database_path = current_path / "shc/Database/";
+  // if (std::filesystem::exists(database_path) && std::filesystem::is_directory(database_path)) {
+  //   std::cout << "Retry3 Database folder exists at: " << database_path << std::endl;
+  //   return  new std::string(database_path.string());
+  // }  
 
-  std::cout << "Warning: Database not found Retry4" << std::endl;
-  current_path = std::filesystem::current_path();
-  std::string folderName = "Database";
-  database_path = _find_database(current_path, folderName); 
-  if (!database_path.empty()) {
-    std::cout << "Retry4 Database folder path exists at: " << database_path << std::endl;
-    return  new std::string(database_path.string());
-  } 
+  // std::cout << "Warning: Database not found Retry4" << std::endl;
+  // current_path = std::filesystem::current_path();
+  // std::string folderName = "Database";
+  // database_path = _find_database(current_path, folderName); 
+  // if (!database_path.empty()) {
+  //   std::cout << "Retry4 Database folder path exists at: " << database_path << std::endl;
+  //   return  new std::string(database_path.string());
+  // } 
 
-  std::cout << "ERROR: Database folder does not exist." << std::endl;
-  std::cout << "ERROR: Database load error." << std::endl;
-  return new std::string();
+  // std::cout << "ERROR: Database folder does not exist." << std::endl;
+  // std::cout << "ERROR: Database load error." << std::endl;
+  // return new std::string();
+  return address;
 }
 
 int Database:: load_database(std :: string relative_address){
@@ -363,6 +364,36 @@ int  Database:: get_toursite_diary_like_num(int index,int comment_index)  {
     }
     return 0;
 }
+
+
+
+int Database:: get_toursite_food_num(int index) {
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_food_num();
+    }
+    return 0;
+}  
+std::string* Database :: get_toursite_food_name(int index,int food_index)  {
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_food_name(food_index);
+    }
+    return nullptr;
+}
+
+std::string* Database:: get_toursite_food_label(int index,int food_index) {
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_food_label(food_index);
+    }
+    return nullptr;
+}
+
+int Database:: get_toursite_food_like_num(int index,int food_index)  {
+    if (_index_in_range(index)){
+        return  toursite_list[index]->get_food_like_num(food_index);
+    }
+    return 0;
+}
+
 
 int  Database:: get_place_comment_num(int index , int place_index)  {
     if (_index_in_range(index)){

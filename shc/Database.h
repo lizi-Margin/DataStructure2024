@@ -1,7 +1,7 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 #include<string>
-#include <filesystem>
+// #include <filesystem>
 #include "Toursite.h" 
 #include "../DatabaseIF.h"
 #include "util/File.h"
@@ -37,7 +37,7 @@ protected:
 
   bool _index_in_range(int index);
   std::string*  _check_get_database_address(std::string* address);
-  std::filesystem::path _find_database(const std::filesystem::path& startPath, const std::string& folderName);
+  // std::filesystem::path _find_database(const std::filesystem::path& startPath, const std::string& folderName);
 
 public :
   Database();
@@ -77,6 +77,11 @@ public :
   int get_toursite_diary_num(int index)  override;  
   std::string* get_toursite_diary(int index,int comment_index)  override; 
   int get_toursite_diary_like_num(int index,int comment_index)  override; 
+
+  int get_toursite_food_num(int index)  override;  
+  std::string* get_toursite_food_name(int index,int food_index)  override; 
+  std::string* get_toursite_food_label(int index,int food_index)  override; 
+  int get_toursite_food_like_num(int index,int food_index)  override; 
 
   int get_place_comment_num(int index , int place_index)  override;  
   std::string* get_place_comment(int index,int place_index,int comment_index)  override; 

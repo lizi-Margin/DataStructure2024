@@ -3,9 +3,6 @@
 #include "DatabaseIF.h"
 #include "shc/Database.h"
 #include "shc/util/utils.h"
-#include "shc/util/List.h"
-#include "shc/util/BiMap.h"
-#include "shc/util/Queue.h"
 /*
 2024 shc
 This is a test programme.
@@ -30,6 +27,16 @@ int test(){
   //   std::string str;
   //   std::cin>>str;
   //   std::cout<< *db->get_toursites_index_by_search(str,10);
+  // }
+
+  // for (int i = 0 ; i <10 ;i +=1)
+  // {
+  //   int inp = 0;
+  //   std::cin>>inp;
+  //   std::cout<< db->get_toursite_food_num(10);
+  //   std::cout<< *db->get_toursite_food_name(10,inp);
+  //   std::cout<< *db->get_toursite_food_label(10,inp);
+  //   std::cout<< db->get_toursite_food_like_num(10,inp);
   // }
   
 

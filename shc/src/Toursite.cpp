@@ -86,11 +86,13 @@ int ToursiteRM::load(){
   std::string addr_places = (*address+std::to_string(toursite_index)+"/places.csv");
   std:: string addr_comment  = std::string(*address+std::to_string(toursite_index)+"/comments.csv");
   std::string  addr_place_comment = (std::string(*address+std::to_string(toursite_index)+"/place_comments.csv"));
+  std::string  addr_food = (std::string(*address+std::to_string(toursite_index)+"/food.csv"));
   std::string  addr_diary = (std::string(*address+std::to_string(toursite_index)+"/diary.csv"));
     std::string  addr_route = (std::string(*address+std::to_string(toursite_index)+"/routes.csv"));
     comments_table = new  TableComments();
     place_comments_table = new TablePlaceComments () ;
     diary_table = new TableDiary ();
+    food_table = new TableFood ();
     route_table = new TableRoute();
     place_table = new TablePlace();
 
@@ -105,6 +107,7 @@ int ToursiteRM::load(){
   int comments_ret = comments_table->load(addr_comment) ;
   int place_comments_ret = place_comments_table -> load(addr_place_comment);
   int diary_ret = diary_table->load(addr_diary) ;
+  int food_ret = food_table->load(addr_food) ;
   int routes_ret = route_table ->load(addr_route);
 
 //    int places_ret = 1;
@@ -114,7 +117,7 @@ int ToursiteRM::load(){
 //        places_proxy.close();
 //    }
 
-    if (!(adj_ret == 0 && places_ret == 0&&routes_ret ==0&& comments_ret==0 && place_comments_ret==0 && diary_ret ==0)){
+    if (!(adj_ret == 0 && places_ret == 0&&routes_ret ==0&& comments_ret==0 && place_comments_ret==0 && diary_ret ==0 && food_ret==0)){
         // std::cout<<adj_ret<<places_ret<<routes_ret<<comments_ret<<place_comments_ret<<diary_ret<<std::endl;
         return 1 ;
     }
@@ -135,6 +138,7 @@ int ToursiteRM::save(int to_index){
     std:: string addr_comment  = std::string(*address+std::to_string(to_index)+"/comments.csv");
     std::string  addr_place_comment = (std::string(*address+std::to_string(to_index)+"/place_comments.csv"));
     std::string  addr_diary = (std::string(*address+std::to_string(to_index)+"/diary.csv"));
+    std::string  addr_food = (std::string(*address+std::to_string(to_index)+"/food.csv"));
     std::string  addr_route = (std::string(*address+std::to_string(to_index)+"/routes.csv"));
 
     // CSVWriter adj_proxy(addr_matrix.data()) ;
@@ -155,10 +159,11 @@ int ToursiteRM::save(int to_index){
   int comments_ret = comments_table->save(addr_comment) ;
   int place_comments_ret = place_comments_table -> save(addr_place_comment);
   int diary_ret = diary_table->save(addr_diary) ;
+  int food_ret = food_table->save(addr_food) ;
   int routes_ret = route_table->save(addr_route);
 
 
-  if (!(adj_ret == 0 && places_ret == 0&& routes_ret==0 &&comments_ret==0 && place_comments_ret==0 && diary_ret ==0)){
+  if (!(adj_ret == 0 && places_ret == 0&& routes_ret==0 &&comments_ret==0 && place_comments_ret==0 && diary_ret ==0&& food_ret == 0)){
 //      std::cout<<adj_ret<<places_ret<<routes_ret<<comments_ret<<place_comments_ret<<diary_ret<<std::endl;
       return 1 ;
   }
@@ -288,6 +293,25 @@ int ToursiteRM::get_diary_like_num(int index){
     _check_and_load();
     return  diary_table->get_diary_like_num(index);
 }
+
+
+int ToursiteRM::get_food_num(){
+  _check_and_load();
+  return food_table -> get_length();
+}
+std::string* ToursiteRM:: get_food_name(int index){
+  _check_and_load();
+  return food_table->get_food_name(index);
+}
+std::string* ToursiteRM:: get_food_label(int index){
+  _check_and_load();
+  return food_table->get_food_label(index);
+}
+int ToursiteRM:: get_food_like_num(int index){
+  _check_and_load();
+  return food_table->get_food_like_num( index);
+}
+
 
 int ToursiteRM:: get_place_comment_num(int index){
     if(_place_index_in_range(index)){

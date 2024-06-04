@@ -114,7 +114,7 @@ private:
         //  }
 	}
 
-	void _insert_ac(char *s,int string_index)  
+	void _insert_ac(const char *s,int string_index)  
 	{
 		int i;
 		int len = strlen(s);
@@ -233,12 +233,12 @@ public:
         ChunkList::clear();
         _init_ac();
     }
-    ~StringChunkList(){
-        ChunkList::~ChunkList();
-        // delete[] trie;  
-        // delete[] fail;      
-        // delete[] trie_end_count ;     //结束标志
-    }
+    // ~StringChunkList(){
+    //     ChunkList::~ChunkList();
+    //     // delete[] trie;  
+    //     // delete[] fail;      
+    //     // delete[] trie_end_count ;     //结束标志
+    // }
 
     // ChunkList<int>* search_target(std::string s){
     //     _check_ac_build();

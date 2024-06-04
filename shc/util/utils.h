@@ -102,6 +102,13 @@ void static test_route_table(){
         std:: cout << "一号景点1号场所评论数： "<<   a->get_place_comment_num(1,1) <<"\n";
         std:: cout << "一号景点1号场所评论0： "<<   *a->get_place_comment(1,1,0) <<"\n";
         std:: cout << "一号景点1号场所评论0点赞数： "<<   a->get_place_comment_like_num(1,1,0) <<"\n";
+
+        std:: cout << "十号景点1号食物： "<<  "\n";
+        std::cout<< a->get_toursite_food_num(10)<<" ";
+        std::cout<< *a->get_toursite_food_name(10,1)<<" ";
+        std::cout<< *a->get_toursite_food_label(10,1)<<" ";
+        std::cout<< a->get_toursite_food_like_num(10,1)<<" ";
+        std:: cout <<"\n";
         return 0;
     }
 

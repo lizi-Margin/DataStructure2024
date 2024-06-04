@@ -47,6 +47,7 @@ protected:            // 邻接矩阵
   TableComments * comments_table ;
   TablePlaceComments * place_comments_table;
   TableDiary * diary_table;
+  TableFood * food_table;
   TableRoute * route_table;
   
   int _check_and_load();
@@ -96,6 +97,10 @@ public:
   int get_diary_num();
   std::string* get_diary(int index);
   int get_diary_like_num(int index);
+  int get_food_num();
+  std::string* get_food_name(int index);
+  std::string* get_food_label(int index);
+  int get_food_like_num(int index);
   int get_place_comment_num(int index);
   std :: string* get_place_comment(int index,int comment_index);
   int get_place_comment_like_num(int index,int comment_index);

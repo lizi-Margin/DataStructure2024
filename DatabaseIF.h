@@ -69,9 +69,18 @@ public:
     /* 查询景点日记数 */ 
     virtual int get_toursite_diary_num(int index)  = 0;  
     /* 查询景点日记 */ 
-    virtual std::string* get_toursite_diary(int index,int comment_index)  = 0; 
+    virtual std::string* get_toursite_diary(int index,int diary_index)  = 0; 
     /* 查询景点日记点赞数 */ 
-    virtual int get_toursite_diary_like_num(int index,int comment_index)  = 0; 
+    virtual int get_toursite_diary_like_num(int index,int diary_index)  = 0; 
+
+
+    /* 查询景点美食数 */ 
+    virtual int get_toursite_food_num(int index)  = 0;  
+    /* 查询景点美食 */ 
+    virtual std::string* get_toursite_food_name(int index,int food_index)  = 0; 
+    virtual std::string* get_toursite_food_label(int index,int food_index)  = 0; 
+    /* 查询景点美食点赞数 */ 
+    virtual int get_toursite_food_like_num(int index,int food_index)  = 0; 
 
     /* 查询场所评价数 */ 
     virtual int get_place_comment_num(int index , int place_index)  = 0;  
